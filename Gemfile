@@ -9,6 +9,7 @@ group :development do
   # Use sqlite3 as the database for Active Record in Development
   gem 'sqlite3'
 end
+gem 'bootstrap-sass', '~> 3.2.0'
 
 gem 'rails_12factor', group: :production
 
