@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Personalproject</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<!--navbar-->
-    <div class="navbar-fixed-top">
-      <div class="navbar-header">
-        <div style = "margin-left:110px">
-          <p class="navbar-brand"> <%=link_to "gCamp", main_path%> </p>
+  <head>
+    <title>Personalproject</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+  <!--navbar-->
+    <div class="container nav">
+      <div class="navbar-fixed-top">
+        <div class="navbar-header">
+          <div style = "margin-left:60px">
+            <class="navbar-brand"> <h1><%=link_to "Spot", main_path%></h1>
+          </div>
         </div>
-      </div>
       <div class="navbar-collapse collapse"></div>
+      </div>
     </div>
 
-<div class="container">
-<%= yield %>
+    <div class="body-container">
 
-</body>
+      <%= yield %>
+    </div>
+  </body>
+  <footer>
+    <hr>
+    <%= link_to "LinkedIn", "https://www.linkedin.com/profile/view?id=319703917&trk=nav_responsive_tab_profile",
+      :target => '_blank'%>
+  </footer>
 </html>

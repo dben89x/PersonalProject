@@ -1,4 +1,5 @@
-
+@import "bootstrap-sprockets";
+@import "bootstrap";
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -14,6 +15,36 @@
  *= require_tree .
  *= require_self
  */
+.body-container {
+  margin-top:60px;
+}
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
+body{
+  font-family:"arial black";
+  margin-top:60px;
+}
+
+.homepage {
+  background:image-url("west_end_of_pearl_street_mall_boulder_colorado-wallpaper-3840x2160.jpg");
+  background-size:cover;
+  background-position:fixed;
+  color:white;
+}
+
+.navbar-fixed-top {
+  background: image-url("NYC_Top_of_the_Rock_Pano.jpg");
+  background-size:100% 100%;
+}
+
+.nav{
+  :visited {
+    color:white;
+  }
+  :link {
+    color:white;
+  }
+}
+
+footer {
+  margin-left:60px;
+}
