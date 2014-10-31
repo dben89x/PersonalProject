@@ -12,7 +12,11 @@
       <div class="navbar-fixed-top">
         <div class="navbar-header">
           <div style = "margin-left:60px">
-            <class="navbar-brand"> <h1><%=link_to "Spot", main_path%></h1>
+            <class="navbar-brand">
+            <h1>
+              <%=link_to "Spot", root_path%>
+              <%= link_to "Spot Something", new_spot_path, :class => "btn pull-right" %>
+            </h1>
           </div>
         </div>
       <div class="navbar-collapse collapse"></div>
@@ -26,7 +30,9 @@
   </body>
   <footer>
     <hr>
-    <%= link_to "LinkedIn", "https://www.linkedin.com/profile/view?id=319703917&trk=nav_responsive_tab_profile",
-      :target => '_blank'%>
+    <%= link_to "https://www.linkedin.com/profile/view?id=319703917&trk=nav_responsive_tab_profile",
+      :target => '_blank' do%>
+      <%image_tag("linkedin.png", width: "50em")%>
+    <%end%>
   </footer>
 </html>

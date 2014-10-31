@@ -1,0 +1,9 @@
+<%= form_for(@spot) do |f| %>
+  <center>
+    <%= f.text_field :location, :placeholder=>"Location", autofocus: :true, :class=>"col-md-8 txt_fld" %><br><br>
+
+    <%= f.text_field :others, :placeholder => "Others", :class=>"col-md-8 txt_fld"%><br><br>
+
+    <%= f.submit 'Spit', :class=>"btn btn-submit col-md-8" %>
+  </center>
+<% end %>

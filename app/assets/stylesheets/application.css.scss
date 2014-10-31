@@ -22,14 +22,26 @@
 body{
   font-family:"arial black";
   margin-top:60px;
-}
-
-.homepage {
   background:image-url("west_end_of_pearl_street_mall_boulder_colorado-wallpaper-3840x2160.jpg");
   background-size:cover;
   background-position:fixed;
   color:white;
 }
+
+.txt_fld {
+  color:black;
+  text-align:center;
+}
+
+.btn-submit {
+  background-color: #ee0611
+}
+// .homepage {
+//   background:image-url("west_end_of_pearl_street_mall_boulder_colorado-wallpaper-3840x2160.jpg");
+//   background-size:cover;
+//   background-position:fixed;
+//   color:white;
+// }
 
 .navbar-fixed-top {
   background: image-url("NYC_Top_of_the_Rock_Pano.jpg");

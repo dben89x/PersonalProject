@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  root "pages#main", as: :main
+  root "pages#index"
+
+  resources :spots
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
