@@ -1,9 +1,13 @@
 <%= form_for(@spot) do |f| %>
   <center>
-    <%= f.text_field :location, :placeholder=>"Location", autofocus: :true, :class=>"col-md-8 txt_fld" %><br><br>
+    <%= f.text_field :location, :placeholder=>"Location", autofocus: :true, :class=>"col-md-4" %><br><br>
 
-    <%= f.text_field :others, :placeholder => "Others", :class=>"col-md-8 txt_fld"%><br><br>
+    <%= f.text_field :description, :placeholder=>"Description", :class=>"col-md-4" %><br><br>
 
-    <%= f.submit 'Spit', :class=>"btn btn-submit col-md-8" %>
+    <%= f.time_field :time, :placeholder=>"Time", :class=>"col-md-4" %><br><br><br>
+
+    <%= f.text_field :others, :placeholder => "Others", :class=>"col-md-4"%><br><br>
+
+    <%= f.submit 'Spit', :class=>"btn btn-submit col-md-4" %>
   </center>
 <% end %>

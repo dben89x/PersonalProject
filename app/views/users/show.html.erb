@@ -1,0 +1,20 @@
+<% if notice != nil%>
+  <p id ="notice" class = "alert alert-success"><%=notice%></p>
+<%end%>
+<% full_name = (@user.first_name + " " + @user.last_name) %>
+<h1>
+  <%= full_name %>
+  <%= link_to 'Edit', edit_user_path(@user), :class=>'btn btn-primary pull-right' %>
+</h1>
+
+<dl class = 'dl-horizontal'>
+  <dt>First Name:</dt>
+  <dd><%= @user.first_name %></dd>
+
+  <dt>Last Name:</dt>
+  <dd><%= @user.last_name %></dd>
+
+  <dt>E-Mail:</dt>
+  <dd><%= mail_to(@user.email) %></dd><br>
+</dl>
+<!-- <%= link_to 'Back', users_path %> -->

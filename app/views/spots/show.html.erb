@@ -1,4 +1,9 @@
-<% for @spots.each do |spot|%>
-  <%= spot.location %>
-  <%= spot.others %>
-<% end %>
+<div class = 'container jumbotron text-center'>
+
+  <h1><%= @spot.location %></h1>
+  <h2>at <%= @spot.time.strftime("%H:%M%p")  %> </h2><br>
+
+  <h2> <%= @spot.description %> </h2>
+
+  <h3>with...<br><%= @spot.others %></h3>
+</div>

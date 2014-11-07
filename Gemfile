@@ -5,9 +5,14 @@ group :production do
   gem "rails_12factor"
 end
 
-group :development do
-  # Use sqlite3 as the database for Active Record in Development
+gem 'bcrypt', '~> 3.1.7'
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
 end
+
 gem 'bootstrap-sass', '~> 3.2.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

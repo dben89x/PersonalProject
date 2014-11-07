@@ -1,5 +1,5 @@
 class SpotsController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_spot, only: [:show, :edit, :update, :destroy]
 
   def index
     @spots = Spot.all
@@ -7,6 +7,9 @@ class SpotsController < ApplicationController
 
   def new
     @spot = Spot.new
+  end
+
+  def edit
   end
 
   def show
@@ -18,11 +21,11 @@ class SpotsController < ApplicationController
     redirect_to @spot
   end
 
-  def set_task
+  def set_spot
     @spot = Spot.find(params[:id])
   end
 
   def spot_params
-    params.require(:spot).permit(:location, :others)
+    params.require(:spot).permit(:location, :description, :time, :others)
   end
 end

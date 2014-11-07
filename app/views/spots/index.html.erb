@@ -1,0 +1,45 @@
+<div class = 'container'>
+  <table class = 'table'>
+    <thead>
+      <tr>
+        <th>
+          Location
+        </th>
+
+        <th>
+          Time
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Others
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @spots.each do |spot| %>
+        <tr>
+          <td>
+            <%= spot.location %>
+          </td>
+
+          <td>
+            <%= spot.time.strftime("%H:%M%p") %>
+          </td>
+
+          <td>
+            <%= spot.description %>
+          </td>
+
+          <td>
+            <%= spot.others %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

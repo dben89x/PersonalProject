@@ -1,0 +1,42 @@
+<% if notice != nil%>
+  <p id ="notice" class = "alert alert-success"><%=notice%></p>
+<%end%>
+<table class = "table">
+  <h1>
+    Users
+    <%= link_to "New User", new_user_path, :class => "btn btn-primary pull-right" %>
+  </h1>
+  <hr>
+
+  <thead>
+    <tr>
+      <th>
+        <h3>Name</h3>
+      </th>
+      <th>
+        <h3>E-Mail</h3>
+      </th>
+      <th>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td>
+        <% if user.first_name && user.last_name %>
+          <% full_name = (user.first_name + " " + user.last_name) %>
+          <%= link_to full_name, user_path(user)%>
+        <% end %>
+      </td>
+      <td>
+        <%= mail_to(user.email) %>
+      </td>
+      <td>
+        <%= link_to 'Edit', edit_user_path(user) %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
