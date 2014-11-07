@@ -11,19 +11,25 @@
   <!--navbar-->
       <div class="nav navbar-fixed-top">
         <div class = 'container'>
-          <h1>
-            <%=link_to "Spot", root_path%>
-            <%= link_to "Spot Something", new_spot_path, :class => "pull-right" %>
-          </h1>
-          <div class = 'navbar-brand pull-right' >
-          <% if current_user %>
-            <%= link_to (current_user.first_name + ' ' + current_user.last_name), user_path(current_user) %>
-            <%= link_to "Sign Out", signout_path %>
-          <% else %>
-            <%= link_to 'Sign In', signin_path %>
-            <%= link_to "Sign Up", signup_path %>
-          <% end %>
-        </div>
+            <%=link_to "Spot", root_path, class: 'navbar-header'%>
+
+            <%= form_for(@spot) do |f| %>
+            <div class = "form-horizontal pull-right">
+              <%= f.text_field :location, :placeholder=>"Location" %>
+              <%= link_to "Spot Something", spots_path %>
+            </div>
+            <% end %>
+
+              <div class = 'signin pull-right'>
+
+              <% if current_user %>
+                <%= link_to (current_user.first_name + ' ' + current_user.last_name), user_path(current_user) %>
+                <%= link_to "Sign Out", signout_path %>
+              <% else %>
+                <%= link_to 'Sign In', signin_path %>
+                <%= link_to "Sign Up", signup_path %>
+              <% end %>
+              </div>
         </div>
       </div>
 

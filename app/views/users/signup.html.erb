@@ -1,4 +1,3 @@
 <% @model = @user %>
-<% @path = users_path %>
-<%= render 'form' %>
-<%= link_to 'Back', users_path %>
+<% @path = signup_path %>
+<%= render partial: 'users/form' %>

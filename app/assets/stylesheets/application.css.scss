@@ -19,6 +19,17 @@
   margin-top:60px;
 }
 
+.signin {
+  :link, :visited{
+    color:rgb(0, 0, 0)
+  }
+}
+
+.navbar-header {
+  display:inline;
+  font-size:40px;
+}
+
 .jumbotron {
   opacity: .6;
   width: 1000px;
