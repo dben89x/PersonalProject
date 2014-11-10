@@ -7,7 +7,6 @@
       <!-- titles -->
       <% if @path == signin_path %><h2>Sign into gCamp</h2>
       <% elsif @path == signup_path %><h2>Sign Up for gCamp!</h2>
-      <% elsif @path == users_path %><h2>New User</h2>
       <% elsif @path != users_path && @path == user_path %><h2>Edit User</h2><% end %>
 
 
@@ -61,9 +60,6 @@
 
       <!-- buttons -->
       <br><br>
-
-      <% if @path == users_path %>
-        <%= f.submit 'Create User', :class=>"btn btn-submit" %>
 
       <% elsif @path == signup_path %>
         <%= f.submit 'Sign Up!' %>
