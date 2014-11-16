@@ -9,29 +9,27 @@
   <body>
 
   <!--navbar-->
-      <div class="nav navbar-fixed-top">
-        <div class = 'container'>
-            <%=link_to "Spot", root_path, class: 'navbar-header'%>
+    <div class="nav navbar-fixed-top">
+      <div class = 'container'>
+        <%=link_to "Spot", main_path, class: 'navbar-header'%>
 
-            <%= form_for(@spot) do |f| %>
-            <div class = "form-horizontal pull-right">
-              <%= f.text_field :location, :placeholder=>"Location" %>
-              <%= link_to "Spot Something", spots_path %>
-            </div>
-            <% end %>
+        <div class = 'signin pull-right'>
 
-              <div class = 'signin pull-right'>
-
-              <% if current_user %>
-                <%= link_to (current_user.first_name + ' ' + current_user.last_name), user_path(current_user) %>
-                <%= link_to "Sign Out", signout_path %>
-              <% else %>
-                <%= link_to 'Sign In', signin_path %>
-                <%= link_to "Sign Up", signup_path %>
-              <% end %>
-              </div>
+        <% if current_user %>
+          <%= link_to (current_user.first_name + ' ' + current_user.last_name), user_path(current_user) %>
+          <%= link_to "Sign Out", signout_path %>
+        <% else %>
+          <%= link_to 'Sign In', signin_path %>
+          <%= link_to "Sign Up", signup_path %>
+        <% end %>
         </div>
+
       </div>
+    </div>
+
+    <div class = 'container'>
+      <h3><%= link_to 'Spot Something', new_spot_path, class: 'pull-right' %></h3><br><br>
+    </div>
 
     <div class="body-container">
       <%= yield %>
@@ -39,13 +37,18 @@
 
   </body>
 
+  <hr>
   <footer>
-    <hr>
     <div class = 'container'>
-      <%= link_to "https://www.linkedin.com/profile/view?id=319703917&trk=nav_responsive_tab_profile",
-        :target => '_blank' do%>
-        <%image_tag("linkedin.png", width: "50em")%>
-      <%end%>
+      <%= link_to 'Users', users_path %>
+
+
+      <div class = 'social_media_links pull-right'>
+        <%= link_to "https://www.linkedin.com/profile/view?id=319703917&trk=nav_responsive_tab_profile",
+          :target => '_blank' do%>
+          <%image_tag("linkedin.png", width: "50em")%>
+        <%end%>
+      </div>
     </div>
   </footer>
 </html>

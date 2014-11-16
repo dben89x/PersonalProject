@@ -15,30 +15,40 @@
  *= require_tree .
  *= require_self
  */
-.body-container {
-  margin-top:60px;
-}
 
 .signin {
   :link, :visited{
-    color:rgb(0, 0, 0)
+    color:#ffffff;
   }
 }
 
 .navbar-header {
   display:inline;
-  font-size:40px;
+  font-size:45px;
+  font-family:'papyrus';
+  font-weight:bold;
+}
+
+.error {
+  color:#fd0202
+}
+
+.well {
+  color:black;
+  opacity:.8;
 }
 
 .jumbotron {
   opacity: .6;
-  width: 1000px;
   color:black;
+  :link, :visited {
+    color:black;
+  }
 }
 
 body{
   font-family:"arial black";
-  margin-top:90px;
+  margin-top:60px;
   background:image-url("west_end_of_pearl_street_mall_boulder_colorado-wallpaper-3840x2160.jpg");
   background-size:cover;
   background-position:fixed;
@@ -50,7 +60,7 @@ body{
 }
 
 .navbar-fixed-top {
-  background: image-url("NYC_Top_of_the_Rock_Pano.jpg");
+  background: image-url("Cologne_-_Panoramic_Image_of_the_old_town_at_dusk.jpg");
   background-size:100% 100%;
   .pull-right {
     font-size:20px;
@@ -59,12 +69,9 @@ body{
 
 input {
   color:black;
+  text-align:center;
 }
 
-:visited {
-  color:white;
-}
-
-:link {
+:visited, :link {
   color:white;
 }

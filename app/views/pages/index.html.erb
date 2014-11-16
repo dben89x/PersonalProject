@@ -1,22 +1,54 @@
 <body class = "body homepage">
 
   <div class="container">
-    <h1>I'm Feeling Kinda...[matcher][button]</h1>
+  <% if notice %>
+    <%= notice %>
+  <% end %>
+    <h1>I'm Feeling Kinda...</h1>
+    <div class = 'container'>
+      <h3>
+        <%= link_to image_tag('pizza.png', width: "60em")+' Hungry', restaurants_path, class: "col-md-3" %>
+        <%= link_to image_tag('beer.png', width: "40em")+" Thirsty", bars_path, class: "col-md-3" %>
+        <%= link_to image_tag('popcorn.png', width: "40em")+" Bored", bored_path, class: "col-md-3" %>
+        <%= link_to image_tag('active.png', width: "50em")+" Active", active_path, class: "col-md-3" %>
+      </h3>
+        <br><br><br>
+      <h3>
+        <%= link_to image_tag('coffee.png', width: "50em")+" Intellectual", intellectual_path, class: "col-md-3" %>
+        <%= link_to image_tag('outdoors.png', width: "60em")+' Cooped up', outdoors_path, class: 'col-md-3' %>
+        <%= link_to image_tag('shopping.png', width: "50em")+" Wealthy", shopping_path, class: "col-md-3" %>
+        <%= link_to image_tag('broke.png', width: "60em")+" Broke", broke_path, class: "col-md-3" %>
+      </h3>
+    </div>
   </div>
   <br><br>
   <div class = "container explore">
     <h1>Explore</h1>
     <hr>
+
     <div class= "container">
-      <h3>What's Going on Now</h3>
-      <p>Who's Here</p>
+      <h2>What's Going on Now</h2>
+      <% @spots.each do |spot| %>
+        <div class = 'container jumbotron text-center index-jumbos'>
+          <% if (spot.time - Time.now) < 0 %>
+            <h3><%= link_to "#{spot.location} @ #{spot.time.strftime("%H:%M%p")}", spot_path(spot) %></h3>
+            <h4> <%= spot.description %> </h4>
+            <p>with...</p>
+            <h5> <%= spot.others %></h5>
+          <% end %>
+        </div>
+      <% end %>
     </div>
+
     <div class= "container">
-      <h3>Newly Created Places</h3>
+      <h2>Newly Created Places</h2>
+
     </div>
     <div class = "container">
-      <h3>Recently Reviewed</h3>
+      <h2>Recently Reviewed</h2>
+
     </div>
+  </ul>
 
   </div>
 </body>

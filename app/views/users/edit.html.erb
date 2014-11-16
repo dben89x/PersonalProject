@@ -1,5 +1,6 @@
-<% @model = @user %>
 <% @edit_page = true %>
-<% @path = user_path %>
-<%= render 'form' %>
+<%= render 'form',
+    model: @user,
+    path: user_path,
+    title: 'Edit User' %>
 <!-- <%= link_to 'To Index', users_path %> -->

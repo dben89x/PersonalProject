@@ -10,7 +10,7 @@ class AuthenticatesController < ApplicationController
 
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      redirect_to main_path
+      redirect_to main_path, notice: "Welcome back, #{@user.first_name}"
     else
       @sign_in_error = "Username / password combination is invalid"
       render 'users/signin'
@@ -19,7 +19,7 @@ class AuthenticatesController < ApplicationController
 
   def destroy
     session.clear
-    redirect_to main_path
+    redirect_to main_path, notice: 'You have successfully signed out'
   end
 
 end

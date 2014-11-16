@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
 
-  root "pages#index"
+  root "pages#index", as: :main
 
   resources :spots
   resources :users
 
+  get '/restaurants' => 'locations#restaurants'
+  get '/bars' => 'locations#bars'
+  get '/intellectual' => 'locations#intellectual'
+  get '/shopping' => 'locations#shopping'
+  get '/bored' => 'locations#bored'
+  get '/active' => 'locations#active'
+  get '/outdoors' => 'locations#outdoors'
+  get '/broke' => 'locations#broke'
 
   get '/signin' => 'authenticates#signin'
   post '/signin' => 'authenticates#create'

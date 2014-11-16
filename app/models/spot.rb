@@ -1,3 +1,7 @@
 class Spot <ActiveRecord::Base
-  @spot = Spot.new
+  validates :location, presence: true
+  validates :time, presence: true
+  validates :others, presence: true
+  validates :description, presence: true
+
 end
