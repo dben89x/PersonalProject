@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :spots
   resources :users
 
+  get '/locations' => 'locations#index'
   get '/restaurants' => 'locations#restaurants'
   get '/bars' => 'locations#bars'
   get '/intellectual' => 'locations#intellectual'

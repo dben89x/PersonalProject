@@ -25,11 +25,11 @@
       <% @spots.each do |spot| %>
         <tr>
           <td>
-            <%= spot.location %>
+            <%= link_to spot.location, spot_path(spot) %>
           </td>
 
           <td>
-            <%= spot.time.strftime("%H:%M%p") %>
+            <%= spot.start_time.strftime("%I:%M%p") %>
           </td>
 
           <td>
