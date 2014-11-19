@@ -17,18 +17,20 @@
 
         <% if current_user %>
           <%= link_to (current_user.first_name + ' ' + current_user.last_name), user_path(current_user) %>
+          |
           <%= link_to "Sign Out", signout_path %>
         <% else %>
           <%= link_to 'Sign In', signin_path %>
+          |
           <%= link_to "Sign Up", signup_path %>
         <% end %>
+        <h4><%= link_to 'Spot Something', new_spot_path, class: 'pull-right' %></h4>
         </div>
 
       </div>
     </div>
 
     <div class = 'container'>
-      <h3><%= link_to 'Spot Something', new_spot_path, class: 'pull-right' %></h3><br><br>
     </div>
 
     <div class="body-container">

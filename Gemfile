@@ -6,6 +6,7 @@ group :production do
 end
 
 gem 'bcrypt', '~> 3.1.7'
+gem 'faker'
 
 group :development, :test do
   gem 'rspec-rails'

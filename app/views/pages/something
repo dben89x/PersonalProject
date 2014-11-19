@@ -1,0 +1,4 @@
+add time into field as local
+convert time in field to utc and store as utc
+
+convert and compare time.now as a utc time value and compare to converted utc time value

@@ -29,16 +29,6 @@
     <div class= "container">
       <h2>What's Going on Now</h2>
       <% @spots.each do |spot| %>
-      <%= spot.id %><br>
-      <%= Time.now %><br>
-      <%= spot.start_time %><br>
-      <%= spot.end_time %><br>
-      <%= spot.end_time - spot.start_time %><br>
-      <%= (Time.now - spot.end_time) %><br>
-      <%= (Time.now - spot.start_time) %><br><br>
-
-      <%= Time.now %><br>
-      <%= timezone_convert(spot.start_time) %><br>
 
         <% if (spot.start_time - Time.now) < 0 && (Time.now - spot.end_time) > 0 && (spot.date == Date.today) %>
           <div class = 'container jumbotron text-center index-jumbos'>

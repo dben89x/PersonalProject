@@ -25,25 +25,25 @@
       <!-- fields -->
       <% if path != signin_path %>
         <%= f.label :first_name %>
-        <%= f.text_field :first_name, autofocus: true, class: "col-md-12" %>
+        <%= f.text_field :first_name, placeholder: 'First name', autofocus: true, class: "col-md-12" %>
         <br><br><br>
 
         <%= f.label :last_name %>
-        <%= f.text_field :last_name, class: "col-md-12" %>
+        <%= f.text_field :last_name, placeholder: 'Last name', class: "col-md-12" %>
         <br><br><br>
       <% end %>
 
       <%= f.label :email %>
-      <%= f.email_field :email, class: "col-md-12" %>
+      <%= f.email_field :email, placeholder: 'E-mail', class: "col-md-12"%>
         <br><br><br>
 
       <%= f.label :password %>
-      <%= f.password_field :password, class: "col-md-12" %>
+      <%= f.password_field :password, placeholder: 'Password', class: "col-md-12" %>
         <br><br><br>
 
       <% if path != signin_path %>
         <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, class: "col-md-12" %>
+        <%= f.password_field :password_confirmation, placeholder: 'Password confirmation', class: "col-md-12" %>
         <br><br><br>
       <% end %>
 
