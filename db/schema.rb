@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141117022147) do
+ActiveRecord::Schema.define(version: 20141119211253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cats", force: true do |t|
+    t.string "name"
+  end
+
+  create_table "places", force: true do |t|
+    t.string  "name"
+    t.text    "description"
+    t.string  "location"
+    t.integer "subcats_id"
+  end
 
   create_table "spots", force: true do |t|
     t.string   "location"
@@ -25,6 +36,17 @@ ActiveRecord::Schema.define(version: 20141117022147) do
     t.datetime "updated_at"
     t.datetime "start_time"
     t.datetime "end_time"
+  end
+
+  create_table "subcats", force: true do |t|
+    t.string  "name"
+    t.integer "cat_id"
+  end
+
+  create_table "subscriptions", force: true do |t|
+    t.integer "user_id"
+    t.integer "place_id"
+    t.string  "status"
   end
 
   create_table "users", force: true do |t|

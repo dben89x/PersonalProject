@@ -1,4 +1,4 @@
-class LocationsController < ApplicationController
+class CategoriesController < ApplicationController
   def restaurants
 
   end

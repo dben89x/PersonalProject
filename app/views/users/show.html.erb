@@ -1,0 +1,17 @@
+<div class = 'container'>
+  <h1>
+    <%= @user.full_name %>
+    <%= link_to 'Edit', edit_user_path(@user), :class=>'btn btn-primary pull-right' %>
+  </h1>
+
+  <dl class = 'dl-horizontal'>
+    <dt>First Name:</dt>
+    <dd><%= @user.first_name %></dd>
+
+    <dt>Last Name:</dt>
+    <dd><%= @user.last_name %></dd>
+
+    <dt>E-Mail:</dt>
+    <dd><%= mail_to(@user.email) %></dd><br>
+  </dl>
+</div>

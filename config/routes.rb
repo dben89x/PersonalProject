@@ -5,15 +5,15 @@ Rails.application.routes.draw do
   resources :spots
   resources :users
 
-  get '/locations' => 'locations#index'
-  get '/restaurants' => 'locations#restaurants'
-  get '/bars' => 'locations#bars'
-  get '/intellectual' => 'locations#intellectual'
-  get '/shopping' => 'locations#shopping'
-  get '/bored' => 'locations#bored'
-  get '/active' => 'locations#active'
-  get '/outdoors' => 'locations#outdoors'
-  get '/broke' => 'locations#broke'
+  get '/categories' => 'categories#index'
+  get '/restaurants' => 'restaurants#index'
+  get '/bars' => 'bars#index'
+  get '/intellectual' => 'intellectual#index'
+  get '/shopping' => 'shopping#index'
+  get '/bored' => 'bored#index'
+  get '/active' => 'active#index'
+  get '/outdoors' => 'outdoors#index'
+  get '/broke' => 'broke#index'
 
   get '/signin' => 'authenticates#signin'
   post '/signin' => 'authenticates#create'
