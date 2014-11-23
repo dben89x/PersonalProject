@@ -19,32 +19,63 @@
     </div>
   </div>
   <br><br>
-  <div class = "container explore">
-    <h1>Explore</h1>
+  <div class = "container">
+    <a href='#'><h1 data-toggle='collapse' data-target='.explore'>Explore</h1></a>
     <hr>
 
-    <div class= "container">
-      <h2>What's Going on Now</h2>
-      <% @spots.each do |spot| %>
-
-        <% if (spot.start_time - Time.now) < 0 && (Time.now - spot.end_time) > 0 && (spot.date == Date.today) %>
-          <div class = 'container jumbotron text-center index-jumbos'>
-            <h3><%= link_to "#{spot.location} @ #{spot.start_time.strftime("%I:%M%p")}", spot_path(spot) %></h3>
-            <h4> <%= spot.description %> </h4>
-            <p>with...</p>
-            <h5> <%= spot.others %></h5>
-          </div>
+    <div class= "container collapse explore">
+      <a href='#'><h2 data-toggle='collapse' data-target='.going_on'>What's Going on Now</h2></a>
+      <div class = "collapse going_on">
+      <hr>
+        <% spots_present = false %>
+        <% @spots.order('start_time').each do |spot| %>
+          <% if (spot.start_time < Time.now) and (spot.end_time > Time.now) and (spot.date == Date.today) %>
+            <% spots_present = true %>
+            <div class = 'container jumbotron text-center index-jumbos'>
+              <h3><%= link_to "#{spot.location} @ #{spot.start_time.strftime("%I:%M%p")}", spot_path(spot) %></h3>
+              <h4> <%= spot.description %> </h4>
+              <p>with...</p>
+              <h5> <%= link_to spot.user.full_name, user_path(spot.user) %></h5>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
+        <% if spots_present == false %>
+          <div class = 'container'>Nothing's going on</div>
+        <% end %>
+      </div>
 
-    <div class= "container">
-      <h2>Newly Created Places</h2>
+      <a href='#'><h2 data-toggle="collapse" data-target=".upcoming">Coming Up</h2></a>
+      <div class = "collapse upcoming">
+      <hr>
+        <% spots_present = false %>
+        <% @spots.order('date').each do |spot| %>
+          <% if (Date.today < spot.date) or (Date.today == spot.date and spot.start_time > Time.now)%>
+            <% spots_present = true %>
+            <div class = 'container jumbotron text-center index-jumbos'>
+              <h3><%= link_to "#{spot.location} (#{spot.date.strftime('%b %e')} @
+                  #{spot.start_time.strftime("%I:%M%p")})", spot_path(spot) %></h3>
+              <h4> <%= spot.description %> </h4>
+              <p>with...</p>
+              <h5> <%= link_to spot.user.full_name, user_path(spot.user) %></h5>
+            </div>
+          <% end %>
+        <% end %>
+        <% if spots_present == false %>
+          <div class = 'container'>Nothing's coming up</div>
+        <% end %>
+      </div>
 
-    </div>
-    <div class = "container">
-      <h2>Recently Reviewed</h2>
+      <a href='#'><h2 data-toggle="collapse" data-target=".new_places">Newly Created Places</h2></a>
+      <div class = "collapse new_places">
+      <hr>
+        You haven't coded this yet, dumbass
+      </div>
 
+      <a href='#'><h2 data-toggle="collapse" data-target=".recent_reviews">Recently Reviewed</h2></a>
+      <div class = "collapse recent_reviews">
+        <hr>
+        You haven't coded this yet, dumbass
+      </div>
     </div>
   </ul>
 

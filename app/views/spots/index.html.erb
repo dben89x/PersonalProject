@@ -8,6 +8,10 @@
         </th>
 
         <th>
+          <h3>Date</h3>
+        </th>
+
+        <th>
           <h3>Time</h3>
         </th>
 
@@ -29,6 +33,10 @@
           </td>
 
           <td>
+            <%= spot.date %>
+          </td>
+
+          <td>
             <%= spot.start_time.strftime("%I:%M%p") %>
           </td>
 
@@ -37,7 +45,7 @@
           </td>
 
           <td>
-            <%= spot.others %>
+            <%= link_to spot.user.full_name, user_path(spot.user) %>
           </td>
         </tr>
       <% end %>

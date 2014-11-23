@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 20141119211253) do
     t.string "name"
   end
 
+  create_table "comments", force: true do |t|
+    t.text    "text"
+    t.integer "user_id"
+    t.integer "spot_id"
+    t.integer "place_id"
+  end
+
   create_table "places", force: true do |t|
     t.string  "name"
     t.text    "description"
@@ -29,13 +36,14 @@ ActiveRecord::Schema.define(version: 20141119211253) do
 
   create_table "spots", force: true do |t|
     t.string   "location"
-    t.string   "others"
     t.string   "description"
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "start_time"
     t.datetime "end_time"
+    t.integer  "user_id"
+    t.integer  "place_id"
   end
 
   create_table "subcats", force: true do |t|

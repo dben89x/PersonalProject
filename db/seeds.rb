@@ -12,14 +12,16 @@ Spot.delete_all
   )
 end
 
+users = User.all
 25.times do
+  user = users.sample
   Spot.create!(
     location: Faker::Address.city,
     description: Faker::Lorem.word,
-    date: Faker::Date.forward(5),
+    date: Faker::Date.between(2.days.ago, Date.today + 2),
     start_time: Faker::Time.between(1.day.ago, Time.now, :morning),
     end_time: Faker::Time.between(1.day.ago, Time.now, :evening),
-    others: Faker::Name.name
+    user_id: user.id
   )
 end
 

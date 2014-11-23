@@ -17,6 +17,9 @@ class SpotsController < ApplicationController
 
   def create
     @spot = Spot.new(spot_params)
+    @spot.user_id = current_user.id
+    p "user id:"
+    p @spot.user_id
     if @spot.save
       redirect_to spots_path
     else
@@ -42,6 +45,6 @@ class SpotsController < ApplicationController
   end
 
   def spot_params
-    params.require(:spot).permit(:location, :description, :date, :start_time, :end_time, :others)
+    params.require(:spot).permit(:location, :description, :date, :start_time, :end_time, :user_id)
   end
 end

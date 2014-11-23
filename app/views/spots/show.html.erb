@@ -6,7 +6,7 @@
 
   <h2> <%= @spot.description %> </h2>
 
-  <h3>with...<br><%= @spot.others %></h3>
+  <h3>with...<br><%= link_to @spot.user.full_name, user_path(@spot.user) %></h3>
 </div>
 <div class='container'>
   <%= link_to 'Edit', edit_spot_path(@spot) %>

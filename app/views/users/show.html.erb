@@ -14,4 +14,37 @@
     <dt>E-Mail:</dt>
     <dd><%= mail_to(@user.email) %></dd><br>
   </dl>
+
+<hr>
+<h2>Current Spots</h2>
+<% @user.spots.each do |spot| %>
+  <% if (Date.today == spot.date) and (spot.start_time < Time.now) and (spot.end_time > Time.now) %>
+    <div class = 'container jumbotron text-center index-jumbos'>
+      <h3><%= link_to "#{spot.location} @ #{spot.start_time.strftime("%I:%M%p")}", spot_path(spot) %></h3>
+      <h4> <%= spot.description %> </h4>
+    </div>
+  <% end %>
+<% end %>
+
+<hr>
+<a href='#'><h2 data-toggle='collapse' data-target='.upcoming'><h2>Upcoming Spots</h2></a>
+<% @user.spots.each do |spot| %>
+  <% if (Date.today < spot.date) or (Date.today == spot.date and spot.start_time > Time.now)%>
+    <div class = 'container jumbotron text-center index-jumbos'>
+      <h3><%= link_to "#{spot.location} @ #{spot.start_time.strftime("%I:%M%p")}", spot_path(spot) %></h3>
+      <h4> <%= spot.description %> </h4>
+    </div>
+  <% end %>
+<% end %>
+
+<hr>
+<h2>Previous Spots</h2>
+<% @user.spots.each do |spot| %>
+  <% if (Date.today > spot.date ) or (Date.today == spot.date and spot.start_time < Time.now)%>
+    <div class = 'container jumbotron text-center index-jumbos'>
+      <h3><%= link_to "#{spot.location} @ #{spot.start_time.strftime("%I:%M%p")}", spot_path(spot) %></h3>
+      <h4> <%= spot.description %> </h4>
+    </div>
+  <% end %>
+<% end %>
 </div>

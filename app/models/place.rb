@@ -1,4 +1,8 @@
 class Place < ActiveRecord::Base
   belongs_to :subcat
-  belongs_to :cat, through: :subcat
+
+  has_many :spots
+  has_many :comments
+  has_many :subscriptions
+  has_many :users, through: :subscriptions
 end
