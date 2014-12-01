@@ -4,7 +4,7 @@ class CreatePlaces < ActiveRecord::Migration
       t.string "name"
       t.text "description"
       t.string "location"
-      t.belongs_to :subcats
+      t.belongs_to :subcat
     end
 
     create_table :subscriptions do |t|

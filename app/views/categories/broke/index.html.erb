@@ -1,0 +1,16 @@
+<div class='container'>
+    <%= @cat.first.name %><hr style='border:2px solid'>
+    <% @cat.first.subcats.each do |subcat| %>
+      <div class = 'container'>
+        <%= subcat.name %><hr>
+        <% subcat.places.each do |place| %>
+          <div class = 'container'>
+            <%= place.name %><br>
+            <%= place.description %>
+            <hr>
+          </div>
+        <% end %>
+        <br>
+      </div>
+    <% end %>
+</div>

@@ -1,6 +1,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.homepage {
+  background:image-url("west_end_of_pearl_street_mall_boulder_colorado-wallpaper-3840x2160.jpg");
+  background-size:cover;
+  background-position:fixed;
+  color:white;
+  :visited, :link {
+    color:white;
+  }
+}
+
 .signin {
   :link, :visited{
     color:#ffffff;
@@ -32,12 +42,9 @@
 }
 
 body{
-  font-family:"arial black";
+  font-family:"Futura";
+  font-size: 17px;
   margin-top:70px;
-  background:image-url("west_end_of_pearl_street_mall_boulder_colorado-wallpaper-3840x2160.jpg");
-  background-size:cover;
-  background-position:fixed;
-  color:white;
 }
 
 .btn-submit {
@@ -55,8 +62,4 @@ body{
 input {
   color:black;
   text-align:center;
-}
-
-:visited, :link {
-  color:white;
 }

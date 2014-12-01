@@ -1,6 +1,8 @@
-
 User.delete_all
 Spot.delete_all
+Cat.delete_all
+Subcat.delete_all
+Place.delete_all
 
 50.times do
   User.create!(
@@ -25,46 +27,57 @@ users = User.all
   )
 end
 
-active = Cat.create(name: "active")
+active = Cat.create(name: "Active")
   Subcat.create(name: "Gym", cat_id: active.id)
   Subcat.create(name: "Rock Climbing", cat_id: active.id)
   Subcat.create(name: "Swimming", cat_id: active.id)
   Subcat.create(name: "Yoga", cat_id: active.id)
 
-bars = Cat.create(name: "bars")
+bars = Cat.create(name: "Bars")
   Subcat.create(name: "Dive", cat_id: bars.id)
   Subcat.create(name: "Pub", cat_id: bars.id)
   Subcat.create(name: "Club", cat_id: bars.id)
 
-bored = Cat.create(name: "bored")
+bored = Cat.create(name: "Bored")
   Subcat.create(name: "Movies", cat_id: bored.id)
   Subcat.create(name: "Concerts", cat_id: bored.id)
   Subcat.create(name: "Games", cat_id: bored.id)
 
-broke = Cat.create(name: "broke")
+broke = Cat.create(name: "Broke")
 
-intellectual = Cat.create(name: "intellectual")
+intellectual = Cat.create(name: "Intellectual")
   Subcat.create(name: "Coffee", cat_id: intellectual.id)
   Subcat.create(name: "Library", cat_id: intellectual.id)
 
-outdoors = Cat.create(name: "outdoors")
+outdoors = Cat.create(name: "Outdoors")
   Subcat.create(name: "Mountains", cat_id: outdoors.id)
   Subcat.create(name: "Biking", cat_id: outdoors.id)
   Subcat.create(name: "Camping", cat_id: outdoors.id)
   Subcat.create(name: "Running", cat_id: outdoors.id)
 
-restaurants = Cat.create(name: "restaurants")
-  Subcat.create(name: "Italian", cat_id: restaurants.id)
-  Subcat.create(name: "Mexican", cat_id: restaurants.id)
-  Subcat.create(name: "Thai", cat_id: restaurants.id)
-  Subcat.create(name: "American", cat_id: restaurants.id)
-  Subcat.create(name: "Chinese", cat_id: restaurants.id)
-  Subcat.create(name: "Fast food", cat_id: restaurants.id)
-  Subcat.create(name: "Breakfast", cat_id: restaurants.id)
-  Subcat.create(name: "Lunch", cat_id: restaurants.id)
-  Subcat.create(name: "Dinner", cat_id: restaurants.id)
+restaurants = Cat.create(name: "Restaurants")
+  Subcat.create(name: "Italian", cat_id: restaurants.id, image: 'italian.png', role: 'type')
+  Subcat.create(name: "Mexican", cat_id: restaurants.id, image: 'mexican.png', role: 'type')
+  Subcat.create(name: "Thai", cat_id: restaurants.id, image: 'thai.png', role: 'type')
+  Subcat.create(name: "American", cat_id: restaurants.id, image: 'american.png', role: 'type')
+  Subcat.create(name: "Chinese", cat_id: restaurants.id, image: 'chinese.png', role: 'type')
+  Subcat.create(name: "Fast food", cat_id: restaurants.id, image: 'fastfood.png', role: 'type')
+  Subcat.create(name: "Breakfast", cat_id: restaurants.id, image: 'breakfast.png', role: 'meal')
+  Subcat.create(name: "Lunch", cat_id: restaurants.id, image: 'lunch.png', role: 'meal')
+  Subcat.create(name: "Dinner", cat_id: restaurants.id, image: 'dinner.png', role: 'meal')
 
-shopping = Cat.create(name: "shopping")
+shopping = Cat.create(name: "Shopping")
   Subcat.create(name: "Clothes", cat_id: shopping.id)
   Subcat.create(name: "Sports", cat_id: shopping.id)
   Subcat.create(name: "Food", cat_id: shopping.id)
+
+Subcat.all.each do |s|
+  5.times do
+    Place.create!(
+      name: Faker::Lorem.word,
+      description: Faker::Lorem.sentence,
+      location: Faker::Address.city,
+      subcat_id: s.id
+    )
+  end
+end

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users
 
   get '/categories' => 'categories#index'
+namespace :categories do
   get '/restaurants' => 'restaurants#index'
   get '/bars' => 'bars#index'
   get '/intellectual' => 'intellectual#index'
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
   get '/active' => 'active#index'
   get '/outdoors' => 'outdoors#index'
   get '/broke' => 'broke#index'
+end
 
   get '/signin' => 'authenticates#signin'
   post '/signin' => 'authenticates#create'
