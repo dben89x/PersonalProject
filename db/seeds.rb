@@ -77,7 +77,9 @@ Subcat.all.each do |s|
       name: Faker::Lorem.word,
       description: Faker::Lorem.sentence,
       location: Faker::Address.city,
-      subcat_id: s.id
+      subcat_id: s.id,
+      latitude: Faker::Address.latitude,
+      longitude: Faker::Address.longitude
     )
   end
 end

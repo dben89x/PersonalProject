@@ -14,6 +14,7 @@ group :development, :test do
   gem 'launchy'
 end
 
+gem 'faraday'
 gem 'bootstrap-sass', '~> 3.2.0'
 
 gem 'rails', '4.1.6'

@@ -16,6 +16,7 @@
             <div class = 'container'>
               <%= place.name %><br>
               <%= place.description %>
+              <%= @map.get_map(place.latitude, place.longitude) %>
               <hr>
             </div>
           <% end %>
