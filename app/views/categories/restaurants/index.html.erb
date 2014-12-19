@@ -1,49 +1,46 @@
-<div class='container'>
-  <%= @cat.first.name %><hr style='border:2px solid'>
+<%= @cat.first.name %><hr style='border:2px solid'>
 
-  <% count = 0 %>
-  <a href='#'><h2 data-toggle="collapse" data-target=".restaurant_food_types">List food types</h2></a>
-  <div class = "collapse restaurant_food_types">
-    <div class = 'container'>
-      <% @cat.first.subcats.where(role: 'type').each do |subcat|%>
-        <% count += 1 %>
-        <% string = "category#{count}" %>
-        <a href='#'><h3 data-toggle="collapse" data-target=".<%= string %>">
-          <%= image_tag(subcat.image, width: "50em") + subcat.name %>
-        </h3></a><hr>
-        <div class = "collapse <%=string%>">
-          <% subcat.places.each do |place| %>
-            <div class = 'container'>
-              <%= place.name %><br>
-              <%= place.description %>
-              <%= @map.get_map(place.latitude, place.longitude) %>
-              <hr>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
+<% count = 0 %>
+<a href='#'><h2 data-toggle="collapse" data-target=".restaurant_food_types">List food types</h2></a>
+<div class = "collapse restaurant_food_types">
+  <div class = 'container'>
+    <% @cat.first.subcats.where(role: 'type').each do |subcat|%>
+      <% count += 1 %>
+      <% string = "category#{count}" %>
+      <a href='#'><h3 data-toggle="collapse" data-target=".<%= string %>">
+        <%= image_tag(subcat.image, width: "50em") + subcat.name %>
+      </h3></a><hr>
+      <div class = "collapse <%=string%>">
+        <% subcat.places.each do |place| %>
+          <div class = 'container'>
+            <%= place.name %><br>
+            <%= place.description %>
+            <hr>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
+</div>
 
-  <a href='#'><h2 data-toggle="collapse" data-target=".restaurant_food_meals">List meals</h2></a>
-  <div class = "collapse restaurant_food_meals">
-    <div class = 'container'>
-      <% @cat.first.subcats.where(role: 'meal').each do |subcat|%>
-        <% count += 1 %>
-        <% string = "category#{count}" %>
-        <a href='#'><h3 data-toggle="collapse" data-target=".<%= string %>">
-          <%= image_tag(subcat.image, width: "50em") + subcat.name %>
-        </h3></a><hr>
-        <div class = "collapse <%=string%>">
-          <% subcat.places.each do |place| %>
-            <div class = 'container'>
-              <%= place.name %><br>
-              <%= place.description %>
-              <hr>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
+<a href='#'><h2 data-toggle="collapse" data-target=".restaurant_food_meals">List meals</h2></a>
+<div class = "collapse restaurant_food_meals">
+  <div class = 'container'>
+    <% @cat.first.subcats.where(role: 'meal').each do |subcat|%>
+      <% count += 1 %>
+      <% string = "category#{count}" %>
+      <a href='#'><h3 data-toggle="collapse" data-target=".<%= string %>">
+        <%= image_tag(subcat.image, width: "50em") + subcat.name %>
+      </h3></a><hr>
+      <div class = "collapse <%=string%>">
+        <% subcat.places.each do |place| %>
+          <div class = 'container'>
+            <%= place.name %><br>
+            <%= place.description %>
+            <hr>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>

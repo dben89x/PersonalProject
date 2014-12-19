@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :spots
   resources :users
+  resources :places
 
   get '/categories' => 'categories#index'
 namespace :categories do

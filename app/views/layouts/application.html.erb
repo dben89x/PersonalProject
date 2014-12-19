@@ -31,12 +31,12 @@
       </div>
     </div>
 
-    <% if notice %>
-      <div class = "notice alert alert-success">
-        <%= notice %>
-      </div>
-    <%end%>
-    <div class="body-container">
+    <div class="body-container container">
+      <% if notice %>
+        <div class = "notice alert alert-success">
+          <%= notice %>
+        </div>
+      <%end%>
       <%= yield %>
     </div>
 
@@ -48,6 +48,7 @@
       <%= link_to 'Users', users_path %>
       <%= link_to 'Spots', spots_path %>
       <%= link_to 'categories', categories_path %>
+      <%= link_to 'Places', places_path %>
 
       <div class = 'social_media_links pull-right'>
         <%= link_to "https://www.linkedin.com/profile/view?id=319703917&trk=nav_responsive_tab_profile",

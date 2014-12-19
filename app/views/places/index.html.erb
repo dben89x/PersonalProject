@@ -1,0 +1,36 @@
+<table class = 'table'>
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Description
+      </th>
+      <th>
+        Location
+      </th>
+      <th>
+        Belongs to...
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @places.order(:subcat_id, :location).each do |place| %>
+      <tr>
+        <td>
+          <%= place.name %>
+        </td>
+        <td>
+          <%= place.description %>
+        </td>
+        <td>
+          <%= place.location %>
+        </td>
+        <td>
+          <%= link_to image_tag(place.subcat.cat.image, width: "50em"), "categories/#{place.subcat.cat.name.downcase}" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

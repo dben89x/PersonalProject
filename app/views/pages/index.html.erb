@@ -1,8 +1,6 @@
 <body class = "body homepage">
 
-  <div class="container">
     <h1>I'm Feeling Kinda...</h1>
-    <div class = 'container'>
       <h3>
         <%= link_to image_tag('pizza.png', width: "60em")+' Hungry', categories_restaurants_path, class: "col-md-3" %>
         <%= link_to image_tag('beer.png', width: "40em")+" Thirsty", categories_bars_path, class: "col-md-3" %>
@@ -17,11 +15,10 @@
         <%= link_to image_tag('broke.png', width: "60em")+" Broke", categories_broke_path, class: "col-md-3" %>
       </h3>
     </div>
-  </div>
   <br><br>
   <div class = "container">
     <a href='#'><h1 data-toggle='collapse' data-target='.explore'>Explore</h1></a>
-    <div class='collapse explore'>
+    <div class='collapse explore container'>
     <hr>
 
     <%= collapsable_spots("What's Going On Now", "Nothing's Going On", "start_time", "going_on") do %>
@@ -49,6 +46,5 @@
       </div>
     </div>
   </ul>
-
-  </div>
+</div>
 </body>

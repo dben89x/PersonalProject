@@ -14,6 +14,14 @@ Place.delete_all
   )
 end
 
+User.create!(
+  first_name: "Doug",
+  last_name: "Bennett",
+  email: "d@b.com",
+  password: "1234",
+  password_confirmation: "1234"
+)
+
 users = User.all
 25.times do
   user = users.sample
@@ -27,35 +35,35 @@ users = User.all
   )
 end
 
-active = Cat.create(name: "Active")
+active = Cat.create(name: "Active", image: 'active.png')
   Subcat.create(name: "Gym", cat_id: active.id)
   Subcat.create(name: "Rock Climbing", cat_id: active.id)
   Subcat.create(name: "Swimming", cat_id: active.id)
   Subcat.create(name: "Yoga", cat_id: active.id)
 
-bars = Cat.create(name: "Bars")
+bars = Cat.create(name: "Bars", image: 'beer.png')
   Subcat.create(name: "Dive", cat_id: bars.id)
   Subcat.create(name: "Pub", cat_id: bars.id)
   Subcat.create(name: "Club", cat_id: bars.id)
 
-bored = Cat.create(name: "Bored")
+bored = Cat.create(name: "Bored", image: 'popcorn.png')
   Subcat.create(name: "Movies", cat_id: bored.id)
   Subcat.create(name: "Concerts", cat_id: bored.id)
   Subcat.create(name: "Games", cat_id: bored.id)
 
-broke = Cat.create(name: "Broke")
+broke = Cat.create(name: "Broke", image: 'broke.png')
 
-intellectual = Cat.create(name: "Intellectual")
+intellectual = Cat.create(name: "Intellectual", image: 'coffee.png')
   Subcat.create(name: "Coffee", cat_id: intellectual.id)
   Subcat.create(name: "Library", cat_id: intellectual.id)
 
-outdoors = Cat.create(name: "Outdoors")
+outdoors = Cat.create(name: "Outdoors", image: 'outdoors.png')
   Subcat.create(name: "Mountains", cat_id: outdoors.id)
   Subcat.create(name: "Biking", cat_id: outdoors.id)
   Subcat.create(name: "Camping", cat_id: outdoors.id)
   Subcat.create(name: "Running", cat_id: outdoors.id)
 
-restaurants = Cat.create(name: "Restaurants")
+restaurants = Cat.create(name: "Restaurants", image: 'pizza.png')
   Subcat.create(name: "Italian", cat_id: restaurants.id, image: 'italian.png', role: 'type')
   Subcat.create(name: "Mexican", cat_id: restaurants.id, image: 'mexican.png', role: 'type')
   Subcat.create(name: "Thai", cat_id: restaurants.id, image: 'thai.png', role: 'type')
@@ -66,7 +74,7 @@ restaurants = Cat.create(name: "Restaurants")
   Subcat.create(name: "Lunch", cat_id: restaurants.id, image: 'lunch.png', role: 'meal')
   Subcat.create(name: "Dinner", cat_id: restaurants.id, image: 'dinner.png', role: 'meal')
 
-shopping = Cat.create(name: "Shopping")
+shopping = Cat.create(name: "Shopping", image: 'shopping.png')
   Subcat.create(name: "Clothes", cat_id: shopping.id)
   Subcat.create(name: "Sports", cat_id: shopping.id)
   Subcat.create(name: "Food", cat_id: shopping.id)
