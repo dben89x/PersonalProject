@@ -1,0 +1,3 @@
+class Info < ActiveRecord 
+
+end

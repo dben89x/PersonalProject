@@ -3,6 +3,7 @@ Spot.delete_all
 Cat.delete_all
 Subcat.delete_all
 Place.delete_all
+Subscription.delete_all
 
 50.times do
   User.create!(
@@ -88,6 +89,23 @@ Subcat.all.each do |s|
       subcat_id: s.id,
       latitude: Faker::Address.latitude,
       longitude: Faker::Address.longitude
+    )
+  end
+end
+
+Place.all.each do |place|
+  (rand(6)+1).times do
+    Subscription.create!(
+      user: User.all.sample,
+      place: place,
+      role: "Spottee"
+    )
+  end
+  rand(3).times do
+    Subscription.create!(
+      user: User.all.sample,
+      place: place,
+      role: "Spotter"
     )
   end
 end

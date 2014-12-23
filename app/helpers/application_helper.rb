@@ -26,10 +26,28 @@ module ApplicationHelper
         html += "</div>"
       end
     end
-    if spots_present == false
+    if !spots_present
       html += "<div class = 'container'>#{message}</div>"
     end
     html += "</div>"
     html.html_safe
+  end
+
+  def page_header(title, &block)
+    content_for(:title, title)
+    html = '<div class = "page-header">'.html_safe
+    html += '<div class = "pull-right">'.html_safe
+    if block
+      html += capture do
+        block.call
+      end
+    end
+    html += '</div>'.html_safe
+    html += '<h1>'.html_safe
+    html += title
+    html += '</h1>'.html_safe
+    html += '</div>'.html_safe
+
+    html
   end
 end

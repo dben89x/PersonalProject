@@ -1,4 +1,4 @@
-<%= @cat.first.name %><hr style='border:2px solid'>
+<%= page_header "#{@cat.first.name}" %>
 <% @cat.first.subcats.each do |subcat| %>
   <div class = 'container'>
     <%= subcat.name %><hr>

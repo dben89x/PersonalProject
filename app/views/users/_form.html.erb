@@ -1,58 +1,34 @@
 <%= form_for(model, url: path) do |f| %>
 
   <div class = "row">
-    <div class="well col-md-4 col-md-offset-4">
+    <div class="well col-md-4 col-md-offset-4 text-center">
+      <dl class = 'dl-horizontal'>
 
-      <!-- titles -->
       <h2> <%= title %> </h2>
 
-      <!-- signin_error -->
-      <% if @sign_in_error %>
-        <div class = 'error'>
-          <br><p><%= @sign_in_error %></p>
-        </div>
-      <% end %>
-      <br>
+      <%= render '/errors.html.erb', model: model %>
 
-      <!-- errors -->
-      <% if path != signin_path %>
-        <% if path == signup_path or path == users_path or path == user_path  %>
-          <%= render '/errors.html.erb', model: model %>
-        <% end %>
-      <% end %>
-
-
-      <!-- fields -->
-      <% if path != signin_path %>
         <%= f.label :first_name %>
-        <%= f.text_field :first_name, placeholder: 'First name', autofocus: true, class: "col-md-12" %>
-        <br><br><br>
+        <%= f.text_field :first_name, placeholder: 'First name', autofocus: true, class: "form-control" %>
 
         <%= f.label :last_name %>
-        <%= f.text_field :last_name, placeholder: 'Last name', class: "col-md-12" %>
-        <br><br><br>
-      <% end %>
+        <%= f.text_field :last_name, placeholder: 'Last name', class: "form-control" %>
 
       <%= f.label :email %>
-      <%= f.email_field :email, placeholder: 'E-mail', class: "col-md-12"%>
-        <br><br><br>
+      <%= f.email_field :email, placeholder: 'E-mail', class: "form-control"%>
 
       <%= f.label :password %>
-      <%= f.password_field :password, placeholder: 'Password', class: "col-md-12" %>
-        <br><br><br>
+      <%= f.password_field :password, placeholder: 'Password', class: "form-control" %>
 
-      <% if path != signin_path %>
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, placeholder: 'Password confirmation', class: "col-md-12" %>
-        <br><br><br>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, placeholder: 'Password confirmation', class: "form-control" %>
+      <br>
+
+      <%= f.submit class: 'btn btn-submit' %>
+
+      <% if @edit_user %>
+        <%= link_to 'Delete User', user_path(@user), method: :delete, class: 'btn btn-danger' %>
       <% end %>
-
-      <!-- buttons -->
-        <%= f.submit class: 'btn btn-submit' %>
-
-        <% if @edit_user %>
-          <%= link_to 'Delete User', user_path(@user), method: :delete, class: 'btn btn-danger' %>
-        <% end %>
 
     </div>
   </div>

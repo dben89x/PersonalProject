@@ -1,17 +1,5 @@
 class CategoriesController < ApplicationController
-  def restaurants
-
-  end
-
-  def bars
-
-  end
-
-  def shopping
-
-  end
-
-  def intellectual
-
+  def index
+    @cats = Cat.all
   end
 end

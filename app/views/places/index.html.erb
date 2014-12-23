@@ -1,3 +1,5 @@
+<%= page_header "Places" do%>
+<% end %>
 <table class = 'table'>
   <thead>
     <tr>
@@ -19,7 +21,7 @@
     <% @places.order(:subcat_id, :location).each do |place| %>
       <tr>
         <td>
-          <%= place.name %>
+          <%= link_to place.name, place_path(place) %>
         </td>
         <td>
           <%= place.description %>

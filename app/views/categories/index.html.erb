@@ -1,0 +1,10 @@
+<%= page_header "Categories" %>
+<% @cats.each do |cat|%>
+  <h3><%= link_to cat.name, "/categories/#{cat.name.downcase}"%></h3>
+  <div class='container'>
+    <% cat.subcats.each do |subcat| %>
+      <%= subcat.name %><br>
+    <% end %>
+  </div>
+  <hr>
+<% end %>

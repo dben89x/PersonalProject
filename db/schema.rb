@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141219220652) do
+ActiveRecord::Schema.define(version: 20141223035850) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attendees", force: true do |t|
+    t.integer "user_id"
+    t.integer "spot_id"
+    t.string  "role"
+    t.boolean "arrived"
+    t.boolean "attending"
+  end
 
   create_table "cats", force: true do |t|
     t.string "name"
@@ -28,6 +36,20 @@ ActiveRecord::Schema.define(version: 20141219220652) do
     t.integer "place_id"
   end
 
+  create_table "info", force: true do |t|
+    t.integer "rating"
+    t.boolean "like"
+    t.integer "service"
+    t.boolean "familiar"
+    t.integer "experience"
+    t.text    "activities"
+    t.integer "crowd"
+    t.integer "price"
+    t.integer "place_id"
+    t.integer "spot_id"
+    t.integer "user_id"
+  end
+
   create_table "places", force: true do |t|
     t.string  "name"
     t.text    "description"
@@ -35,6 +57,7 @@ ActiveRecord::Schema.define(version: 20141219220652) do
     t.integer "subcat_id"
     t.float   "latitude"
     t.float   "longitude"
+    t.string  "kind"
   end
 
   create_table "spots", force: true do |t|
