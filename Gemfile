@@ -12,8 +12,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
+  gem 'pry'
 end
-
 gem 'faraday'
 gem 'bootstrap-sass', '~> 3.2.0'
 

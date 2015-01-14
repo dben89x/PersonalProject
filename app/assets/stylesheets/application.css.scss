@@ -11,10 +11,24 @@
   }
 }
 
-.signin {
-  :link, :visited{
-    color:#ffffff;
-  }
+.spot-button {
+  border-radius: 5px;
+}
+
+.nav-li {
+  float:left;
+}
+
+.map {
+  width: 300px;
+  height: 300px;
+  background-color: gray;
+}
+
+.spot_something {
+  margin-left: -100px;
+  transform: scaleX(0.75);
+  padding-top: 10px;
 }
 
 .navbar-header {
@@ -22,7 +36,6 @@
   font-size:45px;
   font-family:'papyrus';
   font-weight:bold;
-  color:white
 }
 
 .error {
@@ -48,15 +61,21 @@ body{
   margin-top:70px;
 }
 
+.navbar-right {
+  margin-top:-40px;
+}
+
 .btn-submit {
-  background-color: #ee0611
+  background-color: #ee0611;
+  color:white;
 }
 
 .navbar-fixed-top {
   background: image-url("Cologne_-_Panoramic_Image_of_the_old_town_at_dusk.jpg");
   background-size:100% 100%;
-  .pull-right {
-    font-size:20px;
+  color:white;
+  :link, :visited{
+    color:#ffffff;
   }
 }
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141223035850) do
+ActiveRecord::Schema.define(version: 20150114001813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,11 @@ ActiveRecord::Schema.define(version: 20141223035850) do
     t.integer "user_id"
     t.integer "spot_id"
     t.integer "place_id"
+  end
+
+  create_table "friends", force: true do |t|
+    t.integer "user_id"
+    t.integer "friend_id"
   end
 
   create_table "info", force: true do |t|
@@ -61,14 +66,12 @@ ActiveRecord::Schema.define(version: 20141223035850) do
   end
 
   create_table "spots", force: true do |t|
-    t.string   "location"
     t.string   "description"
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "start_time"
+    t.datetime "start_time",  default: '2015-01-13 19:55:12'
     t.datetime "end_time"
-    t.integer  "user_id"
     t.integer  "place_id"
   end
 

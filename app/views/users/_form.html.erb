@@ -1,4 +1,4 @@
-<%= form_for(model, url: path) do |f| %>
+<%= form_for model do |f| %>
 
   <div class = "row">
     <div class="well col-md-4 col-md-offset-4 text-center">
@@ -8,11 +8,11 @@
 
       <%= render '/errors.html.erb', model: model %>
 
-        <%= f.label :first_name %>
-        <%= f.text_field :first_name, placeholder: 'First name', autofocus: true, class: "form-control" %>
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, placeholder: 'First name', autofocus: true, class: "form-control" %>
 
-        <%= f.label :last_name %>
-        <%= f.text_field :last_name, placeholder: 'Last name', class: "form-control" %>
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, placeholder: 'Last name', class: "form-control" %>
 
       <%= f.label :email %>
       <%= f.email_field :email, placeholder: 'E-mail', class: "form-control"%>

@@ -5,7 +5,7 @@ module ApplicationHelper
     converted_time = time + offset
     converted_time
   end
-
+  
   def collapsable_cats
 
   end
@@ -19,10 +19,13 @@ module ApplicationHelper
       if block.call
         spots_present = true
         html += "<div class = 'container jumbotron text-center index-jumbos'>"
-        html += "<h3><a href=#{spot_path(spot)}>#{spot.location} @ #{spot.start_time.strftime('%I:%M%p')}</a></h3>"
-        html += "<h4> #{spot.description}</h4>"
+        html += "<h3><a href=#{spot_path(spot)}>#{spot.place.name} @ #{spot.start_time.strftime('%I:%M%p')}</a></h3>"
+        html += "<h4> #{spot.description}</h   4>"
         html += "<p>with...</p>"
-        html += "<h5><a href=#{user_path(spot.user)}>#{spot.user.full_name}</a></h5>"
+        spot.attendees.each do |attendee|
+          html += "<h5><a href=#{user_path(attendee.user_id)}>#{attendee.user.full_name}</a></h5>"
+        end
+        html += "#{render partial: '/spots/going_form', locals: {mod: spot.id}}"
         html += "</div>"
       end
     end

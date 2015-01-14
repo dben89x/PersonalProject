@@ -12,6 +12,13 @@
 
     <dt>E-Mail:</dt>
     <dd><%= mail_to(@user.email) %></dd><br>
+
+    <dt>Subscriptions:</dt>
+    <dd>
+      <% User.find(current_user).subscriptions.each do |subs| %>
+        <%= link_to subs.place.name, place_path(subs.place) %><br>
+      <% end %>
+    </dd>
   </dl>
 
   <hr>
@@ -19,7 +26,7 @@
   <% @user.spots.each do |spot| %>
     <% if (spot.start_time < Time.now) and (spot.end_time > Time.now) and (spot.date == Date.today) %>
       <div class = 'container jumbotron text-center index-jumbos'>
-        <h3><%= link_to "#{spot.location} @ #{spot.start_time.strftime("%I:%M%p")}", spot_path(spot) %></h3>
+        <h3><%= link_to "#{spot.place.name} @ #{spot.start_time.strftime("%I:%M%p")}", spot_path(spot) %></h3>
         <h4> <%= spot.description %> </h4>
       </div>
     <% end %>
@@ -31,7 +38,7 @@
   <% @user.spots.each do |spot| %>
     <% if (Date.today < spot.date) or (Date.today == spot.date and spot.start_time > Time.now)%>
       <div class = 'container jumbotron text-center index-jumbos'>
-        <h3><%= link_to "#{spot.location} @ #{spot.start_time.strftime("%I:%M%p")}", spot_path(spot) %></h3>
+        <h3><%= link_to "#{spot.place.name} @ #{spot.start_time.strftime("%I:%M%p")}", spot_path(spot) %></h3>
         <h4> <%= spot.description %> </h4>
       </div>
     <% end %>
@@ -44,7 +51,7 @@
   <% @user.spots.each do |spot| %>
     <% if (Date.today > spot.date ) or (Date.today == spot.date and spot.start_time < Time.now)%>
       <div class = 'container jumbotron text-center index-jumbos'>
-        <h3><%= link_to "#{spot.location} @ #{spot.start_time.strftime("%I:%M%p")}", spot_path(spot) %></h3>
+        <h3><%= link_to "#{spot.place.name} @ #{spot.start_time.strftime("%I:%M%p")}", spot_path(spot) %></h3>
         <h4> <%= spot.description %> </h4>
       </div>
     <% end %>

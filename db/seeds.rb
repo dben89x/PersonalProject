@@ -4,6 +4,8 @@ Cat.delete_all
 Subcat.delete_all
 Place.delete_all
 Subscription.delete_all
+Attendee.delete_all
+Friend.delete_all
 
 50.times do
   User.create!(
@@ -15,6 +17,15 @@ Subscription.delete_all
   )
 end
 
+User.all.each do |user|
+  (rand(10)+1).times do
+    Friend.create!(
+      user: user,
+      friend_id: User.select{|u| u != user}.sample.id
+    )
+  end
+end
+
 User.create!(
   first_name: "Doug",
   last_name: "Bennett",
@@ -22,19 +33,6 @@ User.create!(
   password: "1234",
   password_confirmation: "1234"
 )
-
-users = User.all
-25.times do
-  user = users.sample
-  Spot.create!(
-    location: Faker::Address.city,
-    description: Faker::Lorem.word,
-    date: Faker::Date.between(2.days.ago, Date.today + 2),
-    start_time: Faker::Time.between(1.day.ago, Time.now, :morning),
-    end_time: Faker::Time.between(1.day.ago, Time.now, :evening),
-    user_id: user.id
-  )
-end
 
 active = Cat.create(name: "Active", image: 'active.png')
   Subcat.create(name: "Gym", cat_id: active.id)
@@ -106,6 +104,25 @@ Place.all.each do |place|
       user: User.all.sample,
       place: place,
       role: "Spotter"
+    )
+  end
+end
+
+25.times do
+  spot = Spot.create!(
+  place_id: Place.all.sample.id,
+  description: Faker::Lorem.word,
+  date: Faker::Date.between(2.days.ago, Date.today + 2),
+  start_time: Faker::Time.between(1.day.ago, Time.now, :morning),
+  end_time: Faker::Time.between(1.day.ago, Time.now, :evening),
+  )
+  (rand(6)).times do
+    Attendee.create!(
+    user: User.all.sample,
+    spot: spot,
+    role: ["Attendee", "Attendant"].sample,
+    attending: [true, false].sample,
+    arrived: [true, false].sample
     )
   end
 end

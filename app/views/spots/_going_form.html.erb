@@ -1,0 +1,4 @@
+<%= form_for @attendee do |f| %>
+  <%= hidden_field_tag :spot_id, mod %>
+  <%= f.submit "I'm Going!", class: 'btn btn-submit' %>
+<% end %>

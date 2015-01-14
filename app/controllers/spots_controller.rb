@@ -17,11 +17,13 @@ class SpotsController < ApplicationController
 
   def create
     @spot = Spot.new(spot_params)
-    @spot.user_id = current_user.id
-    p "user id:"
-    p @spot.user_id
+    Attendee.create!{
+      user_id = current_user.id
+      spot_id = @spot.id
+      role = "Attendant"
+    }
     if @spot.save
-      redirect_to spots_path
+      redirect_to spot_path(@spot), notice: "Spot successfully created"
     else
       render :new
     end
@@ -45,6 +47,6 @@ class SpotsController < ApplicationController
   end
 
   def spot_params
-    params.require(:spot).permit(:location, :description, :date, :start_time, :end_time, :user_id)
+    params.require(:spot).permit(:place_id, :description, :date, :start_time, :end_time)
   end
 end

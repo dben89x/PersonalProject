@@ -2,33 +2,39 @@
 <html>
   <head>
     <title><%= content_for(:title) or "Spot" %></title>
+    <%= favicon_link_tag 'spot-icon.png' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', "https://maps.googleapis.com/maps/api/js?AIzaSyAzmRQoHlce8eWlmbnzukVP--LT89UMexI"%>
     <%= csrf_meta_tags %>
   </head>
   <body>
 
   <!--navbar-->
-    <div class="nav navbar-fixed-top">
+    <ul class="nav navbar-fixed-top">
       <div class = 'container'>
-        <%=link_to "Spot", main_path, class: 'navbar-header'%>
+        <li class='nav-li'>
+          <%=link_to "Spot", main_path, class: 'navbar-header'%>
+        </li>
+        <li class= 'nav-li spot_something'>
+          
+          <%= render "/spots/spot_something_form" %>
+        </li>
+        <li class='nav-li'>
+          <li class = 'navbar-right'>
 
-        <div class = 'signin pull-right'>
-
-        <% if current_user %>
-          <%= link_to (current_user.first_name + ' ' + current_user.last_name), user_path(current_user) %>
-          |
-          <%= link_to "Sign Out", signout_path %>
-        <% else %>
-          <%= link_to 'Sign In', signin_path %>
-          |
-          <%= link_to "Sign Up", signup_path %>
-        <% end %>
-        <h4><%= link_to 'Spot Something', new_spot_path, class: 'pull-right' %></h4>
-        </div>
-
+            <% if current_user %>
+              <%= link_to (current_user.first_name + ' ' + current_user.last_name), user_path(current_user) %>
+              |
+              <%= link_to "Sign Out", signout_path %>
+            <% else %>
+              <%= link_to 'Sign In', signin_path %>
+              |
+              <%= link_to "Sign Up", signup_path %>
+            <% end %>
+          </li>
+        </li>
       </div>
-    </div>
+    </ul>
 
     <div class="body-container container">
       <% if notice %>

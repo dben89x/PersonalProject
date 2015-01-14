@@ -11,7 +11,9 @@ class User < ActiveRecord::Base
   belongs_to :comment
   belongs_to :subscription
 
-  has_many :spots
+  has_many :friends
+  has_many :spots, through: :attendees
+  has_many :attendees
   has_many :comments
   has_many :subscriptions
   has_secure_password

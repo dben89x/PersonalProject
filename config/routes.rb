@@ -17,6 +17,7 @@ namespace :categories do
   get '/outdoors' => 'outdoors#index'
   get '/broke' => 'broke#index'
 end
+  post '/attendees' => 'attendees#create'
 
   get '/signin' => 'authenticates#signin'
   post '/signin' => 'authenticates#create'

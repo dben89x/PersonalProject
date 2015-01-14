@@ -29,11 +29,11 @@
       <% @spots.each do |spot| %>
         <tr>
           <td>
-            <%= link_to spot.location, spot_path(spot) %>
+            <%= link_to spot.place.name, spot_path(spot) %>
           </td>
 
           <td>
-            <%= spot.date %>
+            <%= spot.date.strftime("%b%-d") %>
           </td>
 
           <td>
@@ -45,7 +45,11 @@
           </td>
 
           <td>
-            <%= link_to spot.user.full_name, user_path(spot.user) %>
+            <% spot.attendees.each do |attendee| %>
+              <%= link_to attendee.user.full_name, user_path(attendee.user)%>
+              <% unless attendee == spot.attendees.last %>,<% end %>
+            <% end %>
+
           </td>
         </tr>
       <% end %>
