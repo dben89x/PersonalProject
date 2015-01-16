@@ -14,6 +14,9 @@ group :development, :test do
   gem 'launchy'
   gem 'pry'
 end
+
+# gem 'better_errors'
+# gem 'binding_of_caller'
 gem 'faraday'
 gem 'bootstrap-sass', '~> 3.2.0'
 

@@ -21,9 +21,16 @@
     <div class='collapse explore container'>
     <hr>
 
+    <%= collapsable_spots("Your Spots", "You have no upcoming Spots", "date", "your_spots") do %>
+      <% @spots.each do |spot| %>
+        <% () %>
+      <% end %>
+    <% end %>
+
     <%= collapsable_spots("What's Going On Now", "Nothing's Going On", "start_time", "going_on") do %>
       <% @spots.each do |spot| %>
-        <% (spot.start_time < Time.now) and (spot.end_time > Time.now) and (spot.date == Date.today) %>
+        <% if (spot.start_time < Time.now) and (spot.end_time > Time.now) and (spot.date == Date.today) %>
+        <% end %>
       <% end %>
     <% end %>
 

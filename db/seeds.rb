@@ -17,6 +17,14 @@ Friend.delete_all
   )
 end
 
+User.create!(
+  first_name: "Doug",
+  last_name: "Bennett",
+  email: "d@b.com",
+  password: "1234",
+  password_confirmation: "1234"
+)
+
 User.all.each do |user|
   (rand(10)+1).times do
     Friend.create!(
@@ -25,14 +33,6 @@ User.all.each do |user|
     )
   end
 end
-
-User.create!(
-  first_name: "Doug",
-  last_name: "Bennett",
-  email: "d@b.com",
-  password: "1234",
-  password_confirmation: "1234"
-)
 
 active = Cat.create(name: "Active", image: 'active.png')
   Subcat.create(name: "Gym", cat_id: active.id)

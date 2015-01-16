@@ -3,12 +3,9 @@
     <div class='form-group'>
       <%= link_to content_tag(:span, "", class: "glyphicon glyphicon-pencil"), new_spot_path %>
     </div>
-    <div class='form-group'>
-      <%= f.text_field :description, autofocus: true, placeholder: "Description", class: 'form-control' %>
-    </div>
 
     <div class='form-group'>
-      <%= f.collection_select(:place_id, User.all, :id, :full_name, {prompt: "Invite Friends"}, {class: "form-control"}) %>
+      <%= f.text_field :description, autofocus: true, placeholder: "Description", class: 'form-control' %>
     </div>
 
     <div class='form-group'>
@@ -26,6 +23,12 @@
     <div class='form-group'>
       <%= f.time_field :end_time, value: @spot_nav.end_time.strftime("%I:%M"), class: 'form-control' %>
     </div>
+
+    <%= form_for @attendee_nav do |f| %>
+      <div class='form-group'>
+        <%= p f.collection_select(:user_id, Friend.where(user_id: current_user.id), :id, :friend_id, {prompt: "Invite Friends"}, {class: "form-control"}) %>
+      </div>
+    <% end %>
 
     <div class='form-group' style='opacity: 1.2'>
       <%= image_submit_tag("spot-icon.png", style: 'border-radius:7px', width: "45em", height: "30em", alt: "Spot Something")%>

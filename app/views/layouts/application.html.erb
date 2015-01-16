@@ -16,8 +16,9 @@
           <%=link_to "Spot", main_path, class: 'navbar-header'%>
         </li>
         <li class= 'nav-li spot_something'>
-          
-          <%= render "/spots/spot_something_form" %>
+          <% if current_user %>
+            <%= render "/spots/spot_something_form" %>
+          <% end %>
         </li>
         <li class='nav-li'>
           <li class = 'navbar-right'>
