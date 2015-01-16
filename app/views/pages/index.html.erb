@@ -16,27 +16,34 @@
       </h3>
     </div>
   <br><br>
+
   <div class = "container">
     <a href='#'><h1 data-toggle='collapse' data-target='.explore'>Explore</h1></a>
     <div class='collapse explore container'>
     <hr>
-
+    <% p "AHHHHHHHHHHHHHHHHH" %>
+    <% p friendly_spots.empty? %>
     <%= collapsable_spots("Your Spots", "You have no upcoming Spots", "date", "your_spots") do %>
-      <% @spots.each do |spot| %>
-        <% () %>
+      <% unless friendly_spots.empty? %>
+        <% friendly_spots.each do |spot| %>
+          <% @s << spot %>
+        <% end %>
       <% end %>
     <% end %>
 
     <%= collapsable_spots("What's Going On Now", "Nothing's Going On", "start_time", "going_on") do %>
       <% @spots.each do |spot| %>
         <% if (spot.start_time < Time.now) and (spot.end_time > Time.now) and (spot.date == Date.today) %>
+          <% @s << spot %>
         <% end %>
       <% end %>
     <% end %>
 
     <%= collapsable_spots("Coming Up", "Nothing's Coming Up", "date", "upcoming") do %>
       <% @spots.each do |spot| %>
-        <% (Date.today < spot.date) or (Date.today == spot.date and spot.start_time > Time.now)%>
+        <% if (Date.today < spot.date) or (Date.today == spot.date and spot.start_time > Time.now)%>
+          <% @s << spot %>
+        <% end %>
       <% end %>
     <% end %>
 

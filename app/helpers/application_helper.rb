@@ -10,13 +10,17 @@ module ApplicationHelper
 
   end
 
-  def collapsable_spots(title, message, order_by, classs, condition, &block)
+  def collapsable_spots(title, message, order_by, classs, &block)
     html = "<a href='#'><h2 data-toggle='collapse' data-target='.#{classs}'>#{title}</h2></a>"
     html += "<div class = 'collapse #{classs}'>"
     html += "<hr>"
     spots_present = false
-    @spots.order(order_by).each do |spot|
-      if block.call
+    @s = []
+    block.call
+    p order_by
+    unless @s.empty?
+      @s.sort! {|a,b| a.date <=> b.date}
+      @s.each do |spot|
         spots_present = true
         html += "<div class = 'container jumbotron text-center index-jumbos'>"
         html += "<h3><a href=#{spot_path(spot)}>#{spot.place.name} @ #{spot.start_time.strftime('%I:%M%p')} on #{spot.date.strftime('%b%-d')}</a></h3>"

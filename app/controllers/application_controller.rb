@@ -12,6 +12,28 @@ class ApplicationController < ActionController::Base
     User.find_by(id: session[:user_id])
   end
 
+  def my_friends
+    friends = []
+    User.all.each do |user|
+      user.friends.each do |friend|
+        if friend.friend_id == current_user.id
+          friends << user
+        end
+      end
+    end
+    friends
+  end
+
+  def friendly_spots
+    spots = []
+    my_friends.each do |user|
+      user.spots.each do |spot|
+        spots << spot
+      end
+    end
+    spots
+  end
+
   def subbed_places
     places = []
     Subscription.where(user_id: current_user.id).each { |subs| places << subs.place}
@@ -20,5 +42,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
   helper_method :subbed_places
+  helper_method :my_friends
+  helper_method :friendly_spots
 
 end
