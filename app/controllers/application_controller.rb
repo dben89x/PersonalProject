@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_filter :navs
+  
   def navs
     @spot_nav = Spot.new
     @attendee_nav = Attendee.new
@@ -32,6 +33,11 @@ class ApplicationController < ActionController::Base
       end
     end
     spots
+  end
+
+  def friends_who_have_spots_currently
+    friends = []
+
   end
 
   def subbed_places

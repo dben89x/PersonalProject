@@ -21,14 +21,21 @@
       </div><br>
 
       <div class='form-group'>
+        <% start_time = @spot.start_time || Time.now %>
         <%= f.label :start_time %><br>
-        <%= f.time_field :start_time, value: @spot.start_time.strftime("%I:%M"), class: 'form-control' %>
+        <%= f.time_field :start_time, value: start_time.strftime("%I:%M"), class: 'form-control' %>
       </div><br>
 
       <div class='form-group'>
+        <% end_time = @spot.end_time || start_time + 2.hours %>
         <%= f.label :end_time %><br>
-        <%= f.time_field :end_time, value: @spot.end_time.strftime("%I:%M"), class: 'form-control' %>
+        <%= f.time_field :end_time, value: end_time.strftime("%I:%M"), class: 'form-control' %>
       </div><br><br>
+
+      <% my_friends.each do |friend| %>
+        <%= check_box_tag 'invited_friends[]', friend.id %>
+        <%= friend.full_name %><br>
+      <% end %>
 
       <div class='form-group'>
         <%= f.submit class: "btn btn-submit form-control", data: {confirm: "Are you sure?"} %>

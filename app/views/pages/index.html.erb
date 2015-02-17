@@ -21,8 +21,6 @@
     <a href='#'><h1 data-toggle='collapse' data-target='.explore'>Explore</h1></a>
     <div class='collapse explore container'>
     <hr>
-    <% p "AHHHHHHHHHHHHHHHHH" %>
-    <% p friendly_spots.empty? %>
     <%= collapsable_spots("Your Spots", "You have no upcoming Spots", "date", "your_spots") do %>
       <% unless friendly_spots.empty? %>
         <% friendly_spots.each do |spot| %>

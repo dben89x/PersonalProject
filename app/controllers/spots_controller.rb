@@ -17,11 +17,19 @@ class SpotsController < ApplicationController
 
   def create
     @spot = Spot.new(spot_params)
-    Attendee.create!{
-      user_id = current_user.id
-      spot_id = @spot.id
-      role = "Attendant"
-    }
+    Attendee.create!(
+      user: current_user,
+      spot: @spot,
+      role: "Attendant"
+    )
+    params[:invited_friends].each do |friend_id|
+      Attendee.create!(
+        user: User.find(friend_id),
+        spot: @spot,
+        role: 'Attendee'
+      )
+    end
+
     if @spot.save
       redirect_to spot_path(@spot), notice: "Spot successfully created"
     else
