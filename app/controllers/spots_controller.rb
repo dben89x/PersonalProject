@@ -22,12 +22,14 @@ class SpotsController < ApplicationController
       spot: @spot,
       role: "Attendant"
     )
-    params[:invited_friends].each do |friend_id|
-      Attendee.create!(
-        user: User.find(friend_id),
-        spot: @spot,
-        role: 'Attendee'
-      )
+    if params[:invited_friends]
+      params[:invited_friends].each do |friend_id|
+        Attendee.create!(
+          user: User.find(friend_id),
+          spot: @spot,
+          role: 'Attendee'
+        )
+      end
     end
 
     if @spot.save

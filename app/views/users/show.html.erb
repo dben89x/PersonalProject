@@ -2,8 +2,10 @@
     <%= @user.full_name %>
     <%= link_to 'Edit', edit_user_path(@user), :class=>'btn btn-primary pull-right' %>
   </h1>
+  <%= image_tag(@user.avatar, width: "200em") %>
 
   <dl class = 'dl-horizontal'>
+
     <dt>First Name:</dt>
     <dd><%= @user.first_name %></dd>
 

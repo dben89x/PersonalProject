@@ -15,25 +15,25 @@
         <li class='nav-li'>
           <%=link_to "Spot", main_path, class: 'navbar-header'%>
         </li>
-        <li class= 'nav-li spot_something'>
-          <% if current_user %>
-            <%= render "/spots/spot_something_form" %>
-          <% end %>
-        </li>
-        <li class='nav-li'>
-          <li class = 'navbar-right'>
-
-            <% if current_user %>
-              <%= link_to (current_user.first_name + ' ' + current_user.last_name), user_path(current_user) %>
-              |
-              <%= link_to "Sign Out", signout_path %>
-            <% else %>
-              <%= link_to 'Sign In', signin_path %>
-              |
-              <%= link_to "Sign Up", signup_path %>
-            <% end %>
+        <% if current_user %>
+          <li class= 'nav-li spot_something'>
+              <%= render "/spots/spot_something_form" %>
           </li>
-        </li>
+          <li class='nav-li'>
+            <li class = 'navbar-right'>
+
+                <%= link_to (current_user.first_name + ' ' + current_user.last_name), user_path(current_user) %>
+                |
+                <%= link_to "Sign Out", signout_path %>
+            </li>
+          </li>
+        <% else %>
+          <li class = 'navbar-right' style = 'margin-top: 0px'>
+            <%= link_to 'Sign In', signin_path %>
+            |
+            <%= link_to "Sign Up", signup_path %>
+          </li>
+        <% end %>
       </div>
     </ul>
 

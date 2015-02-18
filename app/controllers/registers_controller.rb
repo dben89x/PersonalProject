@@ -1,4 +1,4 @@
-class RegistersController<ApplicationController
+class RegistersController<PublicController
 
   def signup
     @signup = true
@@ -7,9 +7,10 @@ class RegistersController<ApplicationController
   end
 
   def create
+    skip_before_action :ensure_logged_in
+    session[:user_id] = @user.id
     @user = User.new(user_params)
     if @user.save
-      session[:user_id] = @user.id
       redirect_to main_path, notice: "Thanks, #{@user.first_name}. You have successfully signed up!"
     else
       render 'users/signup'

@@ -6,6 +6,7 @@ Place.delete_all
 Subscription.delete_all
 Attendee.delete_all
 Friend.delete_all
+PlaceImage.delete_all
 
 50.times do
   User.create!(
@@ -13,7 +14,8 @@ Friend.delete_all
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
     password: "1234",
-    password_confirmation: "1234"
+    password_confirmation: "1234",
+    avatar: Faker::Avatar.image
   )
 end
 
@@ -22,7 +24,8 @@ User.create!(
   last_name: "Bennett",
   email: "d@b.com",
   password: "1234",
-  password_confirmation: "1234"
+  password_confirmation: "1234",
+  avatar: Faker::Avatar.image
 )
 
 User.all.each do |user|
@@ -106,21 +109,40 @@ Place.all.each do |place|
       role: "Spotter"
     )
   end
+  (rand(3)+1).times do
+    PlaceImage.create!(
+      image: Faker::Avatar.image,
+      place: place,
+      user: User.all.sample,
+      spot: place.spots.sample,
+      comment: Faker::Lorem.paragraph,
+      public: [true,false].sample
+    )
+  end
 end
 
 25.times do
   spot = Spot.create!(
   place_id: Place.all.sample.id,
-  description: Faker::Lorem.word,
+  description: Faker::Lorem.sentence,
   date: Faker::Date.between(2.days.ago, Date.today + 2),
   start_time: Faker::Time.between(1.day.ago, Time.now, :morning),
   end_time: Faker::Time.between(1.day.ago, Time.now, :evening),
   )
-  (rand(6)).times do
+  (rand(2)+1).times do
     Attendee.create!(
     user: User.all.sample,
     spot: spot,
-    role: ["Attendee", "Attendant"].sample,
+    role: "Attendant",
+    attending: [true, false].sample,
+    arrived: [true, false].sample
+    )
+  end
+  (rand(6)+1).times do
+    Attendee.create!(
+    user: User.all.sample,
+    spot: spot,
+    role: "Attendee",
     attending: [true, false].sample,
     arrived: [true, false].sample
     )

@@ -1,8 +1,12 @@
-class AuthenticatesController < ApplicationController
+class AuthenticatesController < PublicController
 
   def signin
     @signin = true
-    render template: 'users/signin'
+    unless current_user
+      render template: 'users/signin'
+    else
+      redirect_to main_path, notice: "You're already signed in"
+    end
   end
 
   def create

@@ -1,13 +1,18 @@
 <div class = 'container jumbotron text-center'>
 
-  <h1><%= @spot.place.name %></h1>
+  <h1><%= link_to @spot.place.name, place_path(@spot.place) %></h1>
   <h2>at <%= @spot.start_time.strftime("%I:%M%p")  %> </h2>
   <h2>to <%= @spot.end_time.strftime("%I:%M%p")  %></h2><br>
 
-  <h2> <%= @spot.description %> </h2>
+  <h2> <%= @spot.description %> </h2><br>
 
-  <h3>with...<br>
-    <% @spot.attendees.each do |attendee| %>
+  with...
+  <h3>
+    <% @spot.attendees.where(role: 'Attendant').each do |attendant| %>
+      <%= link_to attendant.user.full_name, user_path(attendant.user) %> (Creator)<br>
+    <% end %>
+
+    <% @spot.attendees.where(role: 'Attendee').each do |attendee| %>
       <%= link_to attendee.user.full_name, user_path(attendee.user) %><br>
     <% end %>
   </h3>
