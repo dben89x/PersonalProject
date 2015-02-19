@@ -5,5 +5,5 @@ class Place < ActiveRecord::Base
   has_many :comments
   has_many :subscriptions
   has_many :users, through: :subscriptions
-  has_many :placeimages
+  has_many :pics
 end

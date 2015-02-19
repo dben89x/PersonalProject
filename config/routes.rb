@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :spots
   resources :users
   resources :places do
-    resources :placeimages
+    resources :pics
   end
   get '/categories' => 'categories#index'
   namespace :categories do

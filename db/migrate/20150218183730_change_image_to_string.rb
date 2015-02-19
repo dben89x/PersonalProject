@@ -1,6 +1,6 @@
 class ChangeImageToString < ActiveRecord::Migration
   def change
-    remove_column :placeimages, :image
-    add_column :placeimages, :image, :string
+    remove_column :images, :image
+    add_column :images, :image, :string
   end
 end
