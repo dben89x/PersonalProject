@@ -1,6 +1,6 @@
 class AddImagesToPlaces < ActiveRecord::Migration
   def change
-    create_table :place_images do |t|
+    create_table :placeimages do |t|
       t.binary :image
       t.belongs_to :place
       t.belongs_to :user

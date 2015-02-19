@@ -1,8 +1,10 @@
 <%= page_header "#{@place.name}" %>
 <%= @place.description %>
-<div class='map pull-right'>
-
-</div>
+<div class='map pull-right'></div>
+<hr>
+<% @place.placeimages.each do |image| %>
+  <%= image_tag(image.image.url, width: "200em") %>
+<% end %>
 <hr>
 <h2>Subscribers</h2>
 <div class='container'>

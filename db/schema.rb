@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217225351) do
+ActiveRecord::Schema.define(version: 20150218183730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,8 +55,7 @@ ActiveRecord::Schema.define(version: 20150217225351) do
     t.integer "user_id"
   end
 
-  create_table "place_images", force: true do |t|
-    t.binary   "image"
+  create_table "placeimages", force: true do |t|
     t.integer  "place_id"
     t.integer  "user_id"
     t.integer  "spot_id"
@@ -64,6 +63,7 @@ ActiveRecord::Schema.define(version: 20150217225351) do
     t.datetime "updated_at"
     t.text     "comment"
     t.boolean  "public"
+    t.string   "image"
   end
 
   create_table "places", force: true do |t|

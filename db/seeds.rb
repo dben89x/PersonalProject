@@ -6,7 +6,7 @@ Place.delete_all
 Subscription.delete_all
 Attendee.delete_all
 Friend.delete_all
-PlaceImage.delete_all
+Placeimage.delete_all
 
 50.times do
   User.create!(
@@ -110,7 +110,7 @@ Place.all.each do |place|
     )
   end
   (rand(3)+1).times do
-    PlaceImage.create!(
+    Placeimage.create!(
       image: Faker::Avatar.image,
       place: place,
       user: User.all.sample,

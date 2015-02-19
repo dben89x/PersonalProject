@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'carrierwave'
+
 group :production do
   gem "pg"
   gem "rails_12factor"

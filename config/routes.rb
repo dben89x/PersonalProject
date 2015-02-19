@@ -4,19 +4,20 @@ Rails.application.routes.draw do
 
   resources :spots
   resources :users
-  resources :places
-
+  resources :places do
+    resources :placeimages
+  end
   get '/categories' => 'categories#index'
-namespace :categories do
-  get '/restaurants' => 'restaurants#index'
-  get '/bars' => 'bars#index'
-  get '/intellectual' => 'intellectual#index'
-  get '/shopping' => 'shopping#index'
-  get '/bored' => 'bored#index'
-  get '/active' => 'active#index'
-  get '/outdoors' => 'outdoors#index'
-  get '/broke' => 'broke#index'
-end
+  namespace :categories do
+    get '/restaurants' => 'restaurants#index'
+    get '/bars' => 'bars#index'
+    get '/intellectual' => 'intellectual#index'
+    get '/shopping' => 'shopping#index'
+    get '/bored' => 'bored#index'
+    get '/active' => 'active#index'
+    get '/outdoors' => 'outdoors#index'
+    get '/broke' => 'broke#index'
+  end
   post '/attendees' => 'attendees#create'
 
   get '/signin' => 'authenticates#signin'
