@@ -109,15 +109,15 @@ Place.all.each do |place|
       role: "Spotter"
     )
   end
-  (rand(3)+1).times do
-    Pic.create!(
-      place: place,
-      user: User.all.sample,
-      spot: place.spots.sample,
-      comment: Faker::Lorem.paragraph,
-      public: [true,false].sample
-    )
-  end
+  # (rand(3)+1).times do
+  #   Pic.create!(
+  #     place: place,
+  #     user: User.all.sample,
+  #     spot: place.spots.sample,
+  #     comment: Faker::Lorem.paragraph,
+  #     public: [true,false].sample
+  #   )
+  # end
 end
 
 25.times do

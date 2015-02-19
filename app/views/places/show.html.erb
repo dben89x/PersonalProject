@@ -2,15 +2,17 @@
 <div class = 'container'>
 <%= @place.description %>
 <div class='map'></div>
-<br><br><% @place.images.each do |image| %>
-  <%= image_tag(image.image.url, width: "200em") %>
+<br><br>
+<% @place.pics.each do |pic| %>
+  <%= link_to image_tag(pic.image.url, width: "200em"), place_pic_path(@place, pic) %>
 <% end %>
+<%= link_to "Add a new image", new_place_pic_path(@place) %>
 </div>
 <hr>
 <h2>Subscribers</h2>
 <div class='container'>
   <% @place.subscriptions.all.order(role: :desc).each do |subb| %>
-    <%= link_to subb.user.full_name, user_path(subb.user) %><br>
-    <%= subb.role %><hr>
+    <%= link_to (image_tag(subb.user.avatar, width: '50em') + subb.user.full_name), user_path(subb.user) %>
+    <%= "(#{subb.role})" %><br>
   <% end %>
 </div>

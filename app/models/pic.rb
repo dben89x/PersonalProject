@@ -3,5 +3,5 @@ class Pic < ActiveRecord::Base
   belongs_to :user
   belongs_to :spot
 
-  mount_uploader :pic, PicUploader
+  mount_uploader :image, PicUploader
 end
