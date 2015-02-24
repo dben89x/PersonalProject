@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   resources :places do
     resources :pics
   end
+
+  patch 'im_here' => 'attendees#im_here'
+  post 'subscriptions' => 'subscriptions#create'
+
   get '/categories' => 'categories#index'
   namespace :categories do
     get '/restaurants' => 'restaurants#index'

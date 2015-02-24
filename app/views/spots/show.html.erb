@@ -9,14 +9,28 @@
 
   with...
   <h3>
-    <% @spot.attendees.where(role: 'Attendant').each do |attendant| %>
-      <%= link_to attendant.user.full_name, user_path(attendant.user) %> (Creator)<br>
+    <% @spot.attendees.where(role: 'Attendant').order('arrived DESC').each do |attendant| %>
+      <%= image_tag('crown.png', width: '20em') %> <%= link_to attendant.user.full_name, user_path(attendant.user) %>
+      <% if attendant.arrived %><small>(Here)</small><% else %><small>(Not here yet)</small><% end %><br>
     <% end %>
 
-    <% @spot.attendees.where(role: 'Attendee').each do |attendee| %>
-      <%= link_to attendee.user.full_name, user_path(attendee.user) %><br>
+    <% @spot.attendees.where(role: 'Attendee').order('arrived DESC').each do |attendee| %>
+      <%= link_to attendee.user.full_name, user_path(attendee.user) %>
+      <% if attendee.arrived %><small>(Here)</small><% else %><small>(Not here yet)</small><% end %><br>
     <% end %>
   </h3>
+
+  <% spot_attendees = @spot.attendees.map(&:user) %>
+
+  <% if spot_attendees.include?(current_user) %>
+    <%= form_for @attendee, url: {action: "im_here", controller: 'attendees', params: {spot_id: @spot.id, attendee_id: @attendee.id}} do |f| %>
+      <% if !@attendee.arrived %>
+        <%= f.submit "I'm Here!", class: 'btn-submit' %>
+      <% else %>
+        <%= f.submit "I'm Not Here!", class: 'btn-submit' %>
+      <% end %>
+    <% end %>
+  <% end %>
 </div>
 <div class='container'>
   <%= link_to 'Edit', edit_spot_path(@spot) %>

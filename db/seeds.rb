@@ -8,6 +8,15 @@ Attendee.delete_all
 Friend.delete_all
 Pic.delete_all
 
+User.create!(
+  first_name: "Doug",
+  last_name: "Bennett",
+  email: "d@b.com",
+  password: "1234",
+  password_confirmation: "1234",
+  avatar: Faker::Avatar.image
+)
+
 50.times do
   User.create!(
     first_name: Faker::Name.first_name,
@@ -19,14 +28,6 @@ Pic.delete_all
   )
 end
 
-User.create!(
-  first_name: "Doug",
-  last_name: "Bennett",
-  email: "d@b.com",
-  password: "1234",
-  password_confirmation: "1234",
-  avatar: Faker::Avatar.image
-)
 
 User.all.each do |user|
   (rand(10)+1).times do
@@ -80,6 +81,15 @@ shopping = Cat.create(name: "Shopping", image: 'shopping.png')
   Subcat.create(name: "Clothes", cat_id: shopping.id)
   Subcat.create(name: "Sports", cat_id: shopping.id)
   Subcat.create(name: "Food", cat_id: shopping.id)
+
+Place.create!(
+  name: 'Galvanize',
+  description: 'A place for developers to congregate and drink. Heavily.',
+  location: 'Boulder, CO',
+  subcat_id: Subcat.find_by_name('Coffee').id,
+  latitude: Faker::Address.latitude,
+  longitude: Faker::Address.longitude
+)
 
 Subcat.all.each do |s|
   5.times do

@@ -15,6 +15,7 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'pry'
+  gem 'quiet_assets'
 end
 
 # gem 'better_errors'

@@ -1,15 +1,1 @@
-<%= page_header "#{@cat.first.name}" %>
-
-<% @cat.first.subcats.each do |subcat| %>
-  <div class = 'container'>
-    <%= subcat.name %><hr>
-    <% subcat.places.each do |place| %>
-      <div class = 'container'>
-        <%= place.name %><br>
-        <%= place.description %>
-        <hr>
-      </div>
-    <% end %>
-    <br>
-  </div>
-<% end %>
+<%= render 'cat_form' %>

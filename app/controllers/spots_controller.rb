@@ -13,6 +13,8 @@ class SpotsController < ApplicationController
   end
 
   def show
+    @attendee = @spot.attendees.find_by_user_id(current_user.id)
+    # raise @spot.attendees.map{|a| [a.id, a.user.full_name] }.inspect
   end
 
   def create
