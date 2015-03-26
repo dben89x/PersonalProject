@@ -1,7 +1,7 @@
 <%= page_header "#{@place.name}" %>
 <div class = 'container'>
 <%= @place.description %>
-<div class='map'></div>
+<div class='map' style='margin-right:10%'></div>
 <br><br>
 <% @place.pics.each do |pic| %>
   <%= link_to image_tag(pic.image.url, width: "200em"), place_pic_path(@place, pic) %>
@@ -19,3 +19,19 @@
     <%= "(#{subb.role})" %><br>
   <% end %>
 </div>
+<script>
+
+$(document).ready(function(){
+  var myLatLng = new google.maps.LatLng(40.0293099,-105.2399774);
+  var myOptions = {
+    zoom: 14,
+    center: myLatLng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    scrollwheel: false,
+    //disableDefaultUI: true,
+  };
+  map = new google.maps.Map(
+    document.getElementsByClassName('map')[0], myOptions
+  )
+});
+</script>
