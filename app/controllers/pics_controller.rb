@@ -1,6 +1,6 @@
 class PicsController<ApplicationController
   def index
-    @pics = Pic.where()
+    @pics = Pic.where(place_id: params[:place_id])
   end
 
   def show

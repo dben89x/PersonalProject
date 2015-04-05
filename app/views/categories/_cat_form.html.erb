@@ -3,12 +3,12 @@
 
   <% @cat.first.subcats.each do |subcat| %>
     <div class = 'container'>
-      <%= subcat.name %><hr>
+      <%= subcat.name %><br><hr style='width:95%;float:left'><br><br>
       <% subcat.places.each do |place| %>
         <div class = 'container'>
           <%= place.name %><br>
           <%= place.description %>
-          <hr>
+          <hr style='width:90%;float:left'>
         </div>
       <% end %>
       <br>

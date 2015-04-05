@@ -1,12 +1,24 @@
 <%= page_header "#{@place.name}" %>
 <div class = 'container'>
-<%= @place.description %>
+<div style='width:53%'>
+  <%= @place.description %><hr>
+</div>
 <div class='map' style='margin-right:10%'></div>
 <br><br>
-<% @place.pics.each do |pic| %>
-  <%= link_to image_tag(pic.image.url, width: "200em"), place_pic_path(@place, pic) %>
+<% first_six = @place.pics.first(6) %>
+<% first_six.each do |pic| %>
+  <%= link_to image_tag(pic.image.url, width: "20%",
+    alt: "Whoops! Your image isn't showing up. Please make sure it's an image file.
+          This is a #{pic.image.url.rpartition('.').last.upcase} file."),
+    place_pic_path(@place, pic) %>
 <% end %>
-<%= link_to "Add a new image", new_place_pic_path(@place) %>
+<div style='float:right;margin-right:10%'>
+  <% if @place.pics.length > 6 %>
+    <%= link_to "See more images >>", place_pics_path(@place) %>
+  <% end %>
+</div>
+<%= link_to "Add a new image", new_place_pic_path(@place), style: 'display:inline-block' %>
+
 </div>
 <hr>
 <h2>Subscribers</h2>

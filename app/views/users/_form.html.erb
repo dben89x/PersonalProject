@@ -5,27 +5,23 @@
       <dl class = 'dl-horizontal'>
 
       <h2> <%= title %> </h2>
+      <br>
 
       <%= render '/errors.html.erb', model: model %>
 
-      <%= f.label :first_name %>
       <%= f.text_field :first_name, placeholder: 'First name', autofocus: true, class: "form-control" %>
-
-      <%= f.label :last_name %>
+      <br>
       <%= f.text_field :last_name, placeholder: 'Last name', class: "form-control" %>
-
-      <%= f.label :email %>
+      <br>
       <%= f.email_field :email, placeholder: 'E-mail', class: "form-control"%>
-
-      <%= f.label :password %>
+      <br>
       <%= f.password_field :password, placeholder: 'Password', class: "form-control" %>
-
-      <%= f.label :password_confirmation %>
+      <br>
       <%= f.password_field :password_confirmation, placeholder: 'Password confirmation', class: "form-control" %>
       <br>
 
       <% if @signup %>
-        <%= f.submit 'Sign Up!',class: 'btn btn-submit' %>  
+        <%= f.submit 'Sign Up!',class: 'btn btn-submit' %>
       <% else %>
         <%= f.submit class: 'btn btn-submit' %>
       <% end %>

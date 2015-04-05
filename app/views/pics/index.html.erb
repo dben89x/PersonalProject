@@ -1,3 +1,6 @@
-<% @pics.where() do |pic| %>
-  <%= pic %>
+<% @pics.each do |pic| %>
+<%= link_to image_tag(pic.image.url, width: "23%",
+  alt: "Whoops! Your image isn't showing up. Please make sure it's an image file.
+        This is a #{pic.image.url.rpartition('.').last.upcase} file."),
+  place_pic_path(pic.place_id, pic) %>
 <% end %>

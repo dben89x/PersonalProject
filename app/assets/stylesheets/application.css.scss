@@ -3,7 +3,7 @@
 
 body {
   background:image-url("west_end_of_pearl_street_mall_boulder_colorado-wallpaper-3840x2160.jpg");
-  background-size:100%;
+  background-size:115%;
   background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -86,8 +86,12 @@ body{
   background-color: #ee0611;
   color:white;
   border-radius:.5em;
-  box-shadow: inset 0 0 1em black, 0 0 2em black;
+  box-shadow: inset 0 0 1em black, 0 0 1em black;
   border:none;
+}
+
+.notice{
+  text-align: center;
 }
 
 .btn-submit:hover {
