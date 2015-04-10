@@ -2,7 +2,7 @@
 @import "bootstrap";
 
 body {
-  background:image-url("west_end_of_pearl_street_mall_boulder_colorado-wallpaper-3840x2160.jpg");
+  background: linear-gradient( rgba(0, 0, 0, .7), rgba(0, 0, 0, .5) ), image-url("west_end_of_pearl_street_mall_boulder_colorado-wallpaper-3840x2160.jpg");
   background-size:115%;
   background-attachment: fixed;
 	background-repeat: no-repeat;
@@ -11,12 +11,6 @@ body {
   :visited, :link {
     color:white;
   }
-}
-
-.body-container {
-  background: rgba(0,0,0,0.6);
-  border-radius: 1em;
-  box-shadow: 0 0 50px black;
 }
 
 .spot-button {
