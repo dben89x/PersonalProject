@@ -1,3 +1,3 @@
-class Info < ActiveRecord 
+class Info < ActiveRecord::Base
 
 end

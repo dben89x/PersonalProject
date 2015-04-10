@@ -22,7 +22,7 @@ end
 # gem 'binding_of_caller'
 gem 'faraday'
 gem 'bootstrap-sass', '~> 3.2.0'
-
+gem 'gmaps4rails'
 gem 'rails', '4.1.6'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
