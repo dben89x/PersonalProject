@@ -2,6 +2,7 @@
 <html>
   <head>
     <title><%= content_for(:title) or "Spot" %></title>
+    <%= favicon_link_tag 'spot-icon.png' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', "https://maps.googleapis.com/maps/api/js?AIzaSyAzmRQoHlce8eWlmbnzukVP--LT89UMexI"%>
     <%= csrf_meta_tags %>
