@@ -49,8 +49,22 @@ body {
 .error {
   color:#fd0202
 }
+a:hover{
+  transition:.5s;
+  font-size: 1.2em;
+  text-decoration:none;
 
+}
+a:mouseleave{
+  color:blue;
+}
+.navbar-header:hover{
+  transition:.5s;
+  font-size: 3em;
+  text-decoration:none;
+}
 .well {
+  border-radius: 2em;
   color:black;
   opacity:.8;
   box-shadow: inset 0 0 5em black, 0 0 5em black;
@@ -80,17 +94,29 @@ body{
   background-color: #ee0611;
   color:white;
   border-radius:.5em;
-  box-shadow: inset 0 0 1em black, 0 0 1em black;
+  box-shadow: 3px 3px .5em black;
   border:none;
 }
 
 .notice{
   text-align: center;
+  background:rgba(0,0,0,0);
+}
+.alert-success{
+  color:#bce5b6;
+  font-family: 'Lobster';
+  font-size:2em;
+  border:none;
 }
 
 .btn-submit:hover {
+  transition:.1s;
   background-color: #9f000d;
   color:white;
+}
+.btn-submit:active, .btn-submit:focus{
+  box-shadow: 0 0 .7em black;
+  outline: none;
 }
 
 .navbar-fixed-top {
